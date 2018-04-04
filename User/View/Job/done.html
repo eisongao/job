@@ -1,0 +1,29 @@
+<extend name="Public:company_center"/>
+
+<block name="right_main">
+	<div class="col-xs-15 col-md-10 wei-user-admin-content">
+		<style type="text/css">
+			.infos {
+			text-align: center;
+			font-size: 30px;
+			color: green;
+			margin-top: 50px;
+		}
+		.tool {
+			text-align: center;
+			margin: 20px 0;
+		}
+		.tool .btn {
+			line-height: 26px;
+		}
+		</style>
+		<div class="infos"><p><i class="fa fa-check"></i>&nbsp;{$message}</p></div>
+		<div style="padding:1px 0;"></div>
+		<div class="tool btn-group-share"><a class="btn btn-default" href="javascript:void(0);"><i class="fa fa-weibo"></i>&nbsp;分享长微博</a>&nbsp;
+			<a class="btn btn-default" href="javascript:void(0);" ><i class="fa fa-weixin"></i>&nbsp;分享至微信</a>&nbsp;
+			<a class="btn btn-default" href="javascript:void(0);" ><i class="fa fa-qq"></i>&nbsp;分享至QQ群</a></div>
+		<div class="tool"><a class="btn btn-link" href="{:U('Job/index')}">返回职位列表</a> &nbsp;|&nbsp;
+			<a class="btn btn-link" href="{:U('Job/add')}">继续添加职位</a></div>
+
+	</div>
+</block>

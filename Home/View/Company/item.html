@@ -1,0 +1,139 @@
+<include file="Public/header"/>
+<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="{:U('Company/index')}" class="text-label small">全部企业</a></li>
+			<li class="active small"><a href="{:U('Company/index')}" class="text-label small"></a>{$comitem['industryid']}</li>
+			<li class="active small">企业详细信息</li>
+		</ol>
+	</div>
+	<style>
+		.wei-user-logo {
+			border: 1px solid #fff;
+		}
+	</style>
+	<div class="row wei-user-heading">
+		<div class="col-sm-2 wei-user-logo"><img class="img-border" src="__PUBLIC__{$comitem['logo']}" alt="{$comitem['cname']}Logo"></div>
+		<div class="col-sm-10"><h3 class="title ellipsis">{$comitem['cname']}</h3>
+
+			<p class="abstract text-label ellipsis">{$comitem['one']}</p>
+		</div>
+	</div>
+</div>
+<div class="container-fluid container-nav-tabs-2">
+	<div class="container">
+		<ul class="nav nav-tabs-2" role="tablist">
+			<li class="active"><a href="#introduction">企业主页</a></li>
+			<li><a href="#job_list">全部职位</a></li>
+			<li><a href="#comment_list">评论</a></li>
+		</ul>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-9 col-2-left">
+			<div id="introduction"><h4>
+				企业介绍
+			</h4>
+
+				<p class="fat-line">{$comitem['description']}</p>
+				<hr/>
+			</div>
+			<div id="job_list">
+				<empty name="jobother">
+				<h4>本公司其他职位</h4>
+				<p class="text-primary text-center js-comment-empty">暂未发布职位</p>
+					<else/>
+				<h4>全部职位</h4>
+				<ul class="job-list-simple">
+					<foreach name="jobother" item="vo">
+						<li class="job-item">
+							<a href="{:U('Home/Job/item?jobid='.$vo['id'])}">
+								<span class="text-highlight salary">￥{$vo.payid}</span>
+								<span class="title">{$vo.name}</span>
+								<p class="text-label">{$vo.year}工作经验&nbsp;
+								{$vo.eid}学历</p></a>
+						</li>
+					</foreach>
+				</ul>
+				<hr/>
+				</empty>
+			</div>
+			<!--评论 start-->
+			{:W('Comment/index',array(10,$comitem[id]))}
+			<!--评论 end-->
+		</div>
+		<div class="col-xs-3 col-2-right">
+			<div class="panel panel-simple">
+				<div class="panel-heading"><h4>
+					企业信息
+				</h4></div>
+				<div class="panel-body">
+					<p>
+						<i class="fa fa-fixed-size fa-home"></i>&nbsp;
+						<span class="text-label">{$comitem['cname']}</span>
+					</p>
+
+					<p>
+						<i class="fa fa-fixed-size fa-tags"></i>&nbsp;
+                        <span class="text-label">
+                            {$comitem['sizeid']}&nbsp;
+                            {$comitem['attrid']}&nbsp;
+                            {$comitem['industryid']}</span>
+					</p>
+
+					<p>
+						<i class="fa fa-fixed-size fa-link"></i>&nbsp;
+						<a class="text-primary" href="" target="_blank" rel="nofollow">{$comitem['website']}</a>
+					</p>
+
+					<p>
+						<i class="fa fa-fixed-size fa-map-marker"></i>&nbsp;
+						<span class="text-label">{$comitem['address']}</span>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<!--热门企业 start-->
+				<include file="Public/hotCompany"/>
+				<!--热门企业 end-->
+			</div>
+			<!--<div class="panel panel-simple">
+				<div class="panel-heading"><h4>
+					融资信息
+				</h4></div>
+				<div class="panel-body">
+					<ul class="list-inline">
+						<li>
+							<ul class="vertical-flow">
+								<li class="vertical-flow-item"><p class="title">2014-06-05&nbsp;
+									获得启明创投、晨兴创投1500万美金投资
+								</p><span class="badge">A</span></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel panel-simple">
+				<div class="panel-heading"><h4>
+					产品介绍
+				</h4></div>
+				<div class="panel-body">
+					<ul class="media-list border">
+						<li class="media"><a class="pull-left user-face-small" href="" target="_blank">
+							<img class="media-object img-border" src="picture/417bc0020b69912c8d3200db8d8f7dda3639706a.png@100w_100h_0e_80q.jpg">
+						</a>
+
+							<div class="media-body">
+								<h4 class="media-heading text-primary"><a href="" target="_blank">比邻</a></h4>
+
+								<p>比邻是一款电话社交平台APP， 是一个刺激年轻人心跳的社交工具。主要通过即时通话，随时畅聊你感兴趣的话题，并且可以通过精彩的图片和文字分享生活中的美好点滴，也可以欣赏其它用户个性十足的个人资料和生活相册。通过比邻可以以最直接的打电话的形式结识来自天涯海角却与你有共同话题的新朋友，还可以免费发送可爱的动态表情短信联络好友，是一款时尚、刺激的社交APP。</p></div>
+						</li>
+					</ul>
+				</div>
+			</div>-->
+		</div>
+	</div>
+</div>
+<hr/>
+<include file="Public/footer"/>

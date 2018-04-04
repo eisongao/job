@@ -1,0 +1,333 @@
+<extend name="Public:company_center"/>
+
+<block name="right_main">
+<div class="col-xs-15 col-md-10 wei-user-admin-content">
+<style type="text/css">    #update_profile_form .form-group:last-child {
+	margin-bottom: 0px;
+}
+#upload_logo_form .form-group:first-child {
+	margin-bottom: 20px;
+}
+#logo {
+	position: relative;
+}
+#logo a {
+	position: absolute;
+	bottom: 0;
+	left: 200px;
+}
+#logo_img {
+	width: 180px;
+	height: 180px;
+}
+#logo-edit-btn {
+	width: 180px;
+	height: 30px;
+	line-height: 30px;
+	color: #FFF;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	cursor: pointer;
+}
+#logo_select {
+	text-align: center;
+}
+#logo_select h1 {
+	margin: 0 0 0 30px;
+	text-align: left;
+}
+#logo_select > div {
+	padding: 10px 30px;
+}
+#logo_select img {
+	width: 310px;
+}
+#logo_select .preview_face {
+	float: left;
+	position: relative;
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	margin-left: 10px;
+}
+</style>
+<div class="wei-user-admin-title-bar">
+	<div class="container-nav-tabs-2">
+		<ul class="nav nav-tabs-2" role="tablist">
+			<li class="active"><a href="javascript:void(0)">企业信息</a></li>
+		</ul>
+	</div>
+</div>
+<form class="form-horizontal" id="basic_form" method="post" action="{:U('company/update')}" enctype="multipart/form-data">
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="name"><span>*</span>&nbsp;企业名称</label>
+		<div class="col-sm-5">
+			<input class="form-control" type="text" id="name" name="cname" value="{$data.cname}" placeholder="与营业执照一致的企业全名">
+		</div>
+	</div>
+	<div class="form-group"><label class="col-sm-2 control-label" for="city_id"><span>*</span>&nbsp;所在城市</label>
+
+		<div class="col-sm-5">
+			<select class="form-control" name="nowcid" id="city_id" >
+				<foreach name="city" item="v">
+					<option value="{$v.id}" <eq name="data.nowcid" value="$v.id">selected</eq>>{$v.name}</option>
+				</foreach>
+		</select></div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="address">详细地址</label>
+		<div class="col-sm-5">
+			<input class="form-control" type="text" id="address" name="address" value="{$data.address}" placeholder="详细地址">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="size"><span>*</span>&nbsp;企业规模</label>
+		<div class="col-sm-5">
+			<select class="form-control" name="sizeid" id="size">
+			<foreach name="size" item="v">
+				<option value="{$v.id}" <eq name="data.sizeid" value="$v.id">selected</eq> >{$v.tagname}</option>
+			</foreach>
+		</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" ><span>*</span>&nbsp;公司性质</label>
+		<div class="col-sm-5">
+			<select class="form-control" name="attrid" >
+			<foreach name="attr" item="v">
+				<option value="{$v.id}" <eq name="data.attrid" value="$v.id">selected</eq> >{$v.tagname}</option>
+			</foreach>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="industry_id"><span>*</span>&nbsp;所属行业</label>
+		<div class="col-sm-5">
+			<select class="form-control" name="industryid" id="industry_id">
+			<foreach name="industry" item="v">
+				<option value="{$v.id}" <eq name="data.industryid" value="$v.id">selected</eq> >{$v.tagname}</option>
+			</foreach>
+		</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="abstract"><span>*</span>&nbsp;一句话亮点介绍</label>
+		<div class="col-sm-7">
+			<input class="form-control" type="text" id="abstract" name="one" value="{$data.one}" placeholder="如：团队优势、福利待遇、办公环境等">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="description"><span>*</span>&nbsp;企业介绍</label>
+		<div class="col-sm-10">
+			<textarea class="form-control" rows="6" id="description" name="description" placeholder="">{$data.description}</textarea>
+			<span class="help-block">
+				来点个性、特色、无节操的介绍文案吧！如果想显著提高求职者的投递荷尔蒙的话！
+			</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="website">企业网站</label>
+		<div class="col-sm-5">
+			<input class="form-control" type="text" id="website" name="website" value="{$data.website}" placeholder="公司网站或公司官方微博地址">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="contact_name"><span>*</span>&nbsp;联系人</label>
+		<div class="col-sm-5">
+			<input class="form-control" type="text" id="contact_name" name="contact" value="{$data.contact}" placeholder="联系人姓名">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="contact_phone"><span>*</span>&nbsp;联系方式</label>
+		<div class="col-sm-5">
+			<input class="form-control" type="text" id="contact_phone" name="phone" value="{$data.phone}" placeholder="手机或座机">
+		</div>
+	</div>
+</form>
+<form id="upload_logo_form" class="form-horizontal" role="form" method="post" action="{:U('uploadLogo')}" enctype="multipart/form-data" style="margin-top: -40px;">
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="city_id"><span>*</span>&nbsp;企业Logo</label>
+		<div class="col-sm-5">
+			<div id="logo"><!-- IE9 下需通过label 触发隐藏的文件选择，jquery.form.js才不会报错 -->
+				<label style="display: block; margin-top: 5px;">
+					<img id="logo_img" class="img-border" src="__PUBLIC__{$data.logo}">
+					<input id="logo_file" type="file" name="logo" accept="image/gif, image/jpeg, image/png" style="display:none;">
+					<span id="logo-edit-btn" style="">修改</span></label></div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button id="submit-btn" type="submit" class="btn btn-lg btn-highlight btn-min-width-100" >保存</button>
+			&nbsp;
+		</div>
+	</div>
+</form>
+<div class="modal" id="logo_select" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close cancel" ><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+				<h4 class="modal-title">截取Logo</h4></div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="img"><img id="origin_face_img" src="" style="float:left;"></div>
+					<div style="clear: left;"></div>
+				</div>
+				<form id="save_logo_form" method="post" action="{:U('saveLogo')}">
+					<input type="hidden" name="origin_image_name" value="" id="origin_image_name">
+					<input type="hidden" name="x1" value="" id="x1">
+					<input type="hidden" name="y1" value="" id="y1">
+					<input type="hidden" name="x2" value="" id="x2">
+					<input type="hidden" name="y2" value="" id="y2">
+					<input type="hidden" name="w" value="" id="w">
+					<input type="hidden" name="h" value="" id="h">
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary save_logo_sub" onclick="$('#save_logo_form').submit();return false;">保存</button>
+				<button type="button" class="btn btn-default cancel" >取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	seajs.use(['$', 'imgareaselect', 'form-ajax','bootstrap3.0','bootbox'], function ($) {
+		//当上传图片时,检查文件大小 step_1
+		$('#logo_file').change(function (event) {
+			var maxSize = 2;    // MB
+			// uploadLogo()后会重置<input type="file">, 所以这里要检查是否有文件被选中
+			if ( !event.target.files || event.target.files.length > 0 ) {
+				if ( this.files && this.files[0] && ( ( this.files[0].size || 0 ) > maxSize * 1024 * 1024 ) ) {
+					alert("文件不能超过 " + maxSize + " MB");
+					return;
+				}
+				uploadLogo();
+			}
+		});
+
+		//上传图片 step_2
+		function uploadLogo() {
+			var $uploadButton = $("#logo-edit-btn"),
+					uploadText = $uploadButton.html();
+			$uploadButton.html('<i class="fa fa-circle-o-notch fa-spin"></i>上传中...').attr("disabled", "disabled");
+			var options = {
+				data:{'module':'logo_tmp'},
+				success : function (text, status, xhr, form) {
+					$('#logo_file').val('');
+					$uploadButton.html(uploadText).removeAttr("disabled");
+					var response = text;
+					if ( response.status ) {
+						// 修正iframe时弹窗的位置错误
+						if ( window.top != window ) {
+							$('.mfp-container').css('height', '40%');
+						}
+
+						$("#origin_image_name").val(response.info.savename);
+						$("#origin_face_img").attr("src", response.info.path)
+								.after('<div class="preview_face"><img id="preview_face_img" src="" /></div>');
+						$("#preview_face_img").attr("src", response.info.path);
+
+						var preview = function (img, selection) {
+							var scaleX = 180 / (selection.width || 1);
+							var scaleY = 180 / (selection.height || 1);
+							var scale = response.info.width / 300; // 原图的实际尺寸 / 原图的展示尺寸
+
+							$('#preview_face_img').css({
+								width : Math.round(scaleX * 300) + 'px',
+								height : Math.round(scaleY * 300 * response.info.height / response.info.width) + 'px',
+								marginLeft : '-' + Math.round(scaleX * selection.x1) + 'px',
+								marginTop : '-' + Math.round(scaleY * selection.y1) + 'px'
+							});
+
+							$('#x1').val(selection.x1 * scale);
+							$('#y1').val(selection.y1 * scale);
+							$('#x2').val(selection.x2 * scale);
+							$('#y2').val(selection.y2 * scale);
+							$('#w').val(selection.width * scale);
+							$('#h').val(selection.height * scale);
+						}
+
+						var scale = 310 / response.info.width; // 左侧缩略图的缩放比例
+						var initSelectionSize = Math.min(response.info.height, response.info.width) * scale - 10;
+						$("#logo_select").modal("show");
+						$('#origin_face_img').imgAreaSelect({
+							aspectRatio : '1:1',
+							handles : true,
+							x1 : 10,
+							y1 : 10,
+							x2 : initSelectionSize,
+							y2 : initSelectionSize,
+							onInit : preview,
+							onSelectChange : preview
+						});
+					} else {
+						alert(response.state);
+					}
+					$("#upload_logo_form")[0].reset();
+				}
+			};
+			$("#upload_logo_form").ajaxSubmit(options);
+		}
+
+		//保存截取后的log step_3
+		$('#save_logo_form').ajaxForm({
+			beforeSubmit : function (form_data, $form, options) {
+				$("#logo_select .btn").attr("disabled", "disabled");
+				return true;
+			},
+			success : function (txt) {
+				$("#logo_select .btn").removeAttr("disabled");
+
+				var response = txt;
+				if ( response.status ) {
+					$("#logo_select .btn").removeAttr("disabled");
+					$("#empty_logo_url").attr("checked", false);
+					$("#empty_logo_file").hide();
+
+					$('#origin_face_img').imgAreaSelect({
+						remove : true
+					});
+					$('#origin_face_img + div').remove();
+					$("#logo_select").modal("hide");
+
+					$('#logo_img').attr('src', response.info);
+					$('#logo_url').val(response.info);
+					$("#logo-edit-btn").html("修改");
+				} else {
+					alert(response.info);
+				}
+			}
+		});
+
+
+		$('button.cancel').click(function(){
+			$('#origin_face_img').imgAreaSelect({
+				remove : true
+			});
+			$('#origin_face_img + div').remove();
+			$("#logo_select").modal("hide");
+		})
+
+		$("button#submit-btn").click(function(){
+				var ajaxFrom = $('#basic_form');
+				$.ajax({
+					url:ajaxFrom.attr('action'),
+					type:ajaxFrom.attr('method'),
+					data:ajaxFrom.serialize(),
+					success:function(data){
+						bootbox.alert({
+							message:data.info,
+							title: "提示信息"
+						});
+						return false;
+					}
+				})
+				return false;
+		});
+	})
+</script>
+</div>
+</block>

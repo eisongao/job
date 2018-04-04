@@ -1,0 +1,161 @@
+
+<div id="comment_list">
+	<h4>评论</h4>
+	<div class="comment-widget">
+		<ul class="comment-list">
+			<foreach name="clist" item="list">
+			<li id="comment_{$list.id}" class="media comment">
+					<img class="pull-left media-object img-border" width="45" height="45" src="{$list.photo}" alt="{$list.alias}" width="48" height="48" data-toggle="tooltip" data-placement="bottom"/>
+				<div class="media-body">
+					<h5 class="media-heading">
+						<span data-toggle="tooltip" data-placement="bottom" >{$list.alias}</span>
+						<small class="pull-right text-muted">{$list.addtime|date="m月d日 H:i",###}</small>
+					</h5>
+					<if condition="$list['puid'] neq 0">
+						<div id="hf" style="display:block">
+							<blockquote class="text-label">{$list.oldcontent}&nbsp;
+								<span class="text-primary">@{$list.oldalias}</span>
+							</blockquote>
+						</div>
+					</if>
+					<p class="js-comment-content">{$list.content}</p>
+					<notempty name="Think.session.user">
+						<a class="pull-right text-primary" href="javascript:;" onclick="setReply({$list.id});">回应</a>
+					<else />
+						<a href="javascript:void(0);" class="text-primary pull-right js-login-dialog-btn" data-toggle="modal" data-target="#login_modal">回应</a>
+					</notempty>
+				</div>
+			</li>
+			</foreach>
+		</ul>
+
+		<div class="comment-post"><h4>你的回应</h4>
+
+			<div class="alert alert-info" id="al" style="display: none;">
+				<a class="pull-right" href="javascript:;" onclick="unsetReply();">X</a>
+				<span class="js-alert-content"></span>
+			</div>
+			<form action="{:U('Comment/doadd')}" method="post" id="ajaxForm2">
+				<input type="hidden" name="uid" value="{$Think.session.user.id}"/>
+				<input type="hidden" id="puid" name="puid" value=""/>
+				<input type="hidden" name="mid" value="{$mid}"/>
+				<input type="hidden" name="pid" value="{$pid}"/>
+				<textarea class="form-control" id="l" rows="5" name="content"></textarea>
+				<button class="btn btn-primary pull-right" <empty name="Think.session.user">disabled</empty> type="submit">发表评论</button>
+			</form>
+			<empty name="Think.session.user">
+			<p class="mask" style=""> 登录后就可以评论啦&nbsp;
+				<a href="javascript:void(0);" class="text-primary js-login-dialog-btn" data-toggle="modal" data-target="#login_modal">立即登录</a>&nbsp;|&nbsp;
+				<a class="text-primary" href="{:U('Home/Register/index')}">注册</a>
+			</p>
+			</empty>
+		</div>
+	</div>
+
+	<div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="myModalLabel">立即登陆</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" action="{:U('Home/Login/dologin')}" method="post" id="ajaxForm">
+						<input type="hidden" name="id" value="{$id}">
+						<input type="hidden" name="status" value="3">
+						<div class="form-group">
+							<label class="col-sm-2 control-label control-label-required js-column-required" data-column="subject">登陆账号</label>
+
+							<div class="col-sm-7">
+								<input class="form-control js-edit-subject" type="text" name="username" value="" placeholder="请输入您的账号"  autocomplete="off">
+							</div>
+						</div>
+						<div class="space-10"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label control-label-required js-column-required" data-column="subject">登陆密码</label>
+
+							<div class="col-sm-7">
+								<input class="form-control js-edit-subject" type="password" name="password" value="" placeholder="请输入密码"  autocomplete="off">
+							</div>
+						</div>
+						<span id="error" style="color:red"></span>
+						</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary login">登陆</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		/*登陆模态框*/
+		seajs.use(['$','bootstrap-min','bootbox','form-ajax'],function($){
+				$('button.login').click(function(){
+					$(this).addClass("disabled ").text('登陆中...');
+					/*ajax提交登陆信息*/
+					var ajaxform = $("#ajaxForm");
+					$.ajax({
+						url:"{:U('Home/Login/dologin')}",
+						data:ajaxform.serialize(),
+						success:function(data){
+							if(data.status>0){
+								$('#login_modal').modal('hide');
+								window.location.reload();
+							}else{
+								$('#error').html(data.info);
+							}
+						}
+					})
+				})
+			/*ajax提交评论信息*/
+			var ajaxFrom2 = $('#ajaxForm2');
+			ajaxFrom2.ajaxForm({
+				dataType:'json',
+				success:function(data){
+					if(data.status > 0 ){
+						bootbox.alert(data.info, function () {
+							window.location.reload();
+							return false;
+						});
+					}else{
+						bootbox.alert({
+							message:data.info,
+							title: "提示信息"
+						});
+						return false;
+					}
+				}
+			})
+		});
+			/*点击事件函数*/
+			function setReply(a){
+				/*获得文本框焦点*/
+				$('#l').focus();
+				/*设置锚点*/
+				$('html,body').animate({
+					scrollTop:$('#l').offset().top
+				},800);
+				/*显示被评论人和被评论信息div框*/
+				$('#al').css("display","block");
+				/*ajax查找被评论人和被评论的评论信息*/
+				$.ajax({
+					url:"{:U('Comment/ssearch')}",
+					type:'post',
+					data:{id:a},
+					dataType:"json",
+					success:function(data){
+						/*将查找到的信息放置到div框中*/
+						$(".js-alert-content").html(data.oldcontent+"&nbsp@"+data.oldalias);
+					}
+				});
+				/*为隐藏的input(父评论ID)赋值*/
+				$('#puid').val(a);
+			}
+			/*取消评论时将放置被评论人和被评论内容的div框隐藏*/
+			function unsetReply(){
+				$('#al').css("display","none");
+			}
+	</script>
+</div>
