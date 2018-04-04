@@ -1,0 +1,61 @@
+﻿<include file="Public/header"/>
+<include file="Public/menu"/>
+
+	<div class="page-content">
+		<div class="page-header">
+			<h1>欢迎来到招聘后台管理系统</h1>
+		</div>
+		<!-- /.page-header -->
+
+		<!-- PAGE CONTENT BEGINS -->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="well">
+					<h3 class="green smaller lighter">Personal </h3>
+					<ul class="list-unstyled spaced2">
+						<li>
+							<i class="icon-group "></i>
+							用户名：{$user.alias}
+						</li>
+
+						<li>
+							<i class="icon-dashboard"></i>
+							登录时间：{:date("Y-m-d H:i:s",$user[logintime])}
+						</li>
+
+						<li>
+							<i class="icon-download"></i>
+							登录IP：{$user.loginip}
+						</li>
+
+					</ul>
+				</div>
+				<div class="well">
+					<h3 class="green smaller lighter">System </h3>
+					<ul class="list-unstyled spaced2">
+						<li>
+							<i class="icon-desktop "></i>
+							当前操作系统：{$Think.const.PHP_OS}
+						</li>
+
+						<li>
+							<i class="icon-flag"></i>
+							当前运行环境：{$Think.SERVER.SERVER_SOFTWARE}
+						</li>
+
+						<li>
+							<i class="icon-credit-card"></i>
+							框架版本：{$Think.THINK_VERSION }
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- PAGE CONTENT END -->
+	</div>
+</div>
+</div>
+<!-- page specific plugin scripts  加载当前页面js -->
+<include file="Public/footer"/>
+

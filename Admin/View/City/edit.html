@@ -1,0 +1,123 @@
+﻿<include file="Public/header"/>
+<include file="Public/menu"/>
+<div class="page-content">
+	<div class="page-header">
+		<h1>
+			地区管理
+			<small>
+				<i class="icon-double-angle-right"></i>
+				<eq name="Think.ACTION_NAME" value="edit">修改地区
+					<else/>
+					添加地区
+				</eq>
+			</small>
+		</h1>
+	</div>
+	<!-- /.page-header -->
+	<!-- PAGE CONTENT BEGINS -->
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="tabbable">
+					<ul class="nav nav-tabs" id="myTab">
+						<li>
+							<a href="{:U('City/index')}">
+								<i class="green icon-home bigger-110"></i>
+								地区列表
+							</a>
+						</li>
+						<li class="active">
+							<a>
+								<i class="green icon-edit bigger-110"></i>
+								<eq name="Think.ACTION_NAME" value="edit">修改地区
+									<else/>
+									添加地区
+								</eq>
+							</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane in active">
+							<form id="ajaxForm" class="form-horizontal" action='
+							<eq name="Think.ACTION_NAME" value="edit">{:U("City/update")}<else/>{:U("City/insert")}</eq>' method="post">
+								<input type="hidden" name="id" value="{$data.id}"/>
+
+								<div class="space-4"></div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"> 父ID </label>
+
+									<div class="col-sm-9">
+										<input type="text" name="pid" placeholder="请输入父ID号" class="col-xs-10 col-sm-5" value="{$data.pid}"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"> 地区名 </label>
+
+									<div class="col-sm-9">
+										<input type="text" name="name" placeholder="请输入地区名" class="col-xs-10 col-sm-5" value="{$data.name}"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"> 排序号 </label>
+
+									<div class="col-sm-9">
+										<input type="text" name="sort" placeholder="1：表示一线城市，2：表示二级城市，3：表示三级城市" class="col-xs-10 col-sm-5" value="{$data.sort}"/>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"> 状态</label>
+
+									<div class="col-sm-2">
+										<input type="radio" name="status" class="ace"
+										<eq name="data.status" value="1">checked
+											<else/>
+										</eq>
+										<eq name="data.status" value="">checked
+											<else/>
+										</eq>
+										value="1"/>
+										<span class="lbl"> 已发布 </span>
+										<input type="radio" name="status" class="ace"
+										<eq name="data.status" value="2">checked
+											<else/>
+										</eq>
+										value="2"/>
+
+										<span class="lbl"> 未审核 </span>
+									</div>
+								</div>
+
+								<div class="space-4"></div>
+
+								<div class="clearfix form-actions">
+									<div class="col-md-offset-3 col-md-9">
+										<button class="btn btn-info" type="submit">
+											<i class="icon-ok bigger-110"></i>
+											提交
+										</button>
+
+										&nbsp; &nbsp; &nbsp;
+										<button class="btn" type="button">
+											<i class="icon-undo bigger-110"></i>
+											返回
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- PAGE CONTENT END -->
+</div>
+</div>
+</div>
+
+<!-- inline scripts related to this page -->
+
+<include file="Public/footer"/>
+
