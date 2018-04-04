@@ -1,0 +1,87 @@
+<div class="header">
+	<div class="nav_box">
+		<div class="nav_bar">
+			<div class="nav_logo"><a href="/"><img src="__PUBLIC__/images/logo_v4.png"/></a></div>
+			<div class="nav_search">
+				<form method="get" action="{$search.url}" autocomplete="off">
+					<input class="form-control" type="text" name="keyword" value="{$keyword}" placeholder="{$search.placeholder}">
+					<button type="submit" class="btn btn-link"><span class="fa"><img src="__PUBLIC__/images/shousuo.png"/></span></button>
+				</form>
+			</div>
+			<ul class="nav_items">
+				<foreach name="nav" item="v">
+					<li {$v.on}><a href="{$v.url}" >{$v.name}</a></li>
+				</foreach>
+			</ul>
+			<empty name="Think.session.user">
+				<!--未登录-->
+				<ul class="list-unstyled">
+					<li><a href="{:U('Home/Login/login')}" class="text-white">免费发布职位</a> &nbsp;|&nbsp;
+						<a href="{:U('Home/Login/login')}" class="text-white">登录</a> &nbsp;|&nbsp;
+						<a href="{:U('Home/Register/index')}" class="text-white">注册</a> &nbsp;|&nbsp;
+					</li>
+				</ul>
+				<else/>
+				<eq name="user.usertype" value="1">
+					<!--个人用户-->
+					<ul class="nav_right">
+						<li class="dropdown-nav dropdown">
+							<a href="" class="dropdown-toggle dropdown-toggle-nav" >
+								{$user.alias}&nbsp;<span class="caret"></span></a>
+							<ul class="dropdown-menu nav-menu" role="menu">
+								<li><a href="{:U('User/Resume/index')}"><i class="fa fa-file-word-o"></i> 我的简历</a></li>
+
+								<li><a href="{:U('User/History/index')}"><i class="fa fa-history"></i> 申请历史</a></li>
+								<li><a href="{:U('User/PersonalSet/index')}"><i class="fa fa-user"></i> 账号设置</a></li>
+								<li><a href="{:U('Home/Login/logout')}"><i class="fa fa-sign-out"></i> 退出</a></li>
+							</ul>
+						</li>
+					</ul>
+					<else/>
+					<!--企业用户-->
+					<ul class=" nav_right">
+						<li><a href="{:U('User/Job/add')}" title="免费发布职位">发布职位</a>
+						</li>
+						<li>
+							<a href="{:U('User/Apply/index?status=1')}" class="js-data-toggle-tooltip js-drop-btn notifier-number" title="我的通知" data-notifier-number="{$apply_num}"><!-- data-notifier-number="5" 此句控制通知数量-->
+								<i class="fa"><img src="__PUBLIC__/images/xiaoxi.png"/></i>
+							</a>
+						</li>
+						<li class="dropdown-nav dropdown ">
+							<a href="javascript:void(0)" class="dropdown-toggle-nav">
+								{:mb_substr($cname,0,8,'utf-8')}...<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu nav-menu" role="menu">
+								<li><a href="{:U('User/Job/index')}"><i class="fa fa-fw fa-list"></i>&nbsp;职位管理</a>
+								</li>
+								<li class="js-btn-apply-list"><a href="{:U('User/Apply/index')}"><i class="fa fa-fw fa-files-o"></i>&nbsp;简历管理&nbsp;
+									<span class="text-highlight">({$apply_num})</span></a>
+								</li>
+								<li><a href="{:U('User/Company/index')}"><i
+										class="fa fa-fw fa-user"></i>&nbsp;企业资料</a></li>
+								<li><a href="{:U('User/AccountSet/index')}"><i
+										class="fa fa-fw fa-gears"></i>&nbsp;账号设置</a></li>
+								<li><a href="{:U('Home/Login/logout')}"><i class="fa fa-fw fa-sign-out"></i>&nbsp;退出</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</eq>
+			</empty>
+		</div>
+	</div>
+</div>
+<script>
+	seajs.use(['$'], function ($) {
+		$("li.dropdown-nav").hover(function () {
+			$("a.dropdown-toggle-nav").css({"background" : "#22303F"})
+			$("ul.nav-menu").show();
+		}, function () {
+			setTimeout(function () {
+				$("a.dropdown-toggle-nav").css({"background" : "#2C3E51"})
+				$("ul.nav-menu").hide();
+			}, 100);
+
+		})
+	})
+</script>

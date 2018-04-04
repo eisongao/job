@@ -1,0 +1,31 @@
+<div class="footer">
+	<div class="info">
+		<div class="logo">
+			<img src="__PUBLIC__/images/logo_bottom.png"/>
+			<p>©2014&nbsp;jobtong.com&nbsp;All Rights Reserved</p>
+			<p>ICP备00000000号 | 000-123456789</p>
+		</div>
+		<div class="link">
+			<a href="/">网站首页</a>
+			<a href="/">内容招募</a>
+			<a href="/">关于我们</a>
+			<a href="" target="_blank">联系我们</a>
+			<a href="/">人才招聘</a>
+			<a href="">意见反馈</a>
+		</div>
+		<div class="contact">
+			<label>关注我们的动向</label>
+			<p>
+				<a class="weixin" href=""></a>
+				<a class="weibo" href=""></a>
+				<a class="douban" href=""></a>
+			</p>
+		</div>
+	</div>
+	<hr/>
+	<div class="friend">
+		<foreach name="links" item="v">
+			<a href="{$v.url}" target="_blank">{$v.title}</a>
+		</foreach>
+	</div>
+</div>
