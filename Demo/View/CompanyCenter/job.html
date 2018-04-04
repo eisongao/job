@@ -1,0 +1,150 @@
+<include file="Public/headerCompany"/>
+<!--主要内容开始-->
+<div class="container">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="http://www.jobtong.com/e" class="text-label small">全部企业</a></li>
+            <li><a href="http://www.jobtong.com/e?industry=99" class="text-label small">其他</a></li>
+            <li class="active small">企业详细信息</li>
+        </ol>
+    </div>
+    <div class="row wei-user-heading">
+        <div class="pull-left wei-user-logo"><img class="img-border"
+                                                  src="__PUBLIC__/images/d08b0.PNG"
+                                                  alt="上海禾石文化传播有限公司Logo"></div>
+        <h3 class="title ellipsis">上海禾石文化传播有限公司</h3>
+
+        <p class="abstract text-label ellipsis">弹性上班</p>
+
+        <div class="pull-left"><a class="btn btn-sm btn-default" href="http://www.jobtong.com/e/admin/basic"><i
+                class="fa fa-gears"></i>&nbsp;修改资料</a></div>
+    </div>
+</div>
+<div class="container-fluid container-nav-tabs-2">
+    <div class="container">
+        <ul class="nav nav-tabs-2" role="tablist">
+            <li><a href="http://www.jobtong.com/e/12881">企业主页</a></li>
+            <li><a href="http://www.jobtong.com/e/12881">全部职位</a></li>
+            <li><a href="http://www.jobtong.com/e/12881">评论</a></li>
+            <li class="active"><a href="http://www.jobtong.com/e/admin">管理</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="row wei-user-admin-container">
+        <!--右侧菜单-->
+        <include file="Public/menuCompany"/>
+        <!--右侧内容-->
+        <div class="col-xs-15 col-md-10 wei-user-admin-content">
+            <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Common/bootstrap-switch.min.css">
+            <div class="wei-user-admin-title-bar">
+                <div class="container-nav-tabs-2">
+                    <ul class="nav nav-tabs-2" role="tablist">
+                        <li class="active"><a href="#">全部职位</a></li>
+                        <li><a href="#">正在热招</a></li>
+                        <li><a href="#">已关闭职位</a></li>
+                    </ul>
+                </div>
+                <div class="btn-toolbar btn-toolbar-inline">
+                    <div class="btn-group">
+                        <a href="http://www.jobtong.com/e/admin/post_job_category" class="btn btn-primary">发布职位</a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>职位名称</th>
+                    <th style="width:60px;">招聘</th>
+                    <th style="width:60px;">申请</th>
+                    <th style="width:140px;">发布时间</th>
+                    <th style="width:140px;">刷新时间</th>
+                    <th style="width:85px;">状态</th>
+                    <th style="width:220px;">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <form id="refresh_form" method="post" action="http://www.jobtong.com/WeiUserAdminJob/refresh"></form>
+                    <input type="hidden" id="uuid" name="uuid" value=""/>
+                    <tr id="job-a9ecf37fe483c78e1a7c9502b33c4599">
+                        <td>
+                            <input type="hidden" id="manual_refresh_time_a9ecf37fe483c78e1a7c9502b33c4599" value="1419473252">
+                            <a class="text-primary" href="" target="_blank" title="我们热情邀请你加入">运营维护管理</a>
+                        </td>
+                        <td>2人</td>
+                        <td>1人</td>
+                        <td>2014-12-25 09:37</td>
+                        <td class="refresh_time">12小时前</td>
+                        <td>
+                            <div class="bootstrap-switch bootstrap-switch-on bootstrap-switch-small bootstrap-switch-animate">
+                                <div><span class="bootstrap-switch-handle-on bootstrap-switch-success">开启</span><label>
+                                    &nbsp;</label><span class="bootstrap-switch-handle-off bootstrap-switch-danger">关闭</span><input name="switch" type="checkbox" data-uuid="a9ecf37fe483c78e1a7c9502b33c4599" data-size="small" data-on-text="开启" data-off-text="关闭" data-on-color="success" data-off-color="danger" checked=""></div>
+                            </div>
+                        </td>
+                        <td style="white-space:nowrap;">
+                            <a href="<!--跳简历管理下的未处理简历-->" class="btn btn-default">
+                                简历
+                            </a>
+                            <a href="javascript:;" class="btn btn-default">
+                                刷新</a>
+                            <a href="#" class="btn btn-default">
+                                编辑
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="page"><span class="pre"></span> <span class="next"></span> <span class="total">共1页 / 共1条</span>
+            </div>
+            <style type="text/css">    
+                #weixin_modal .qr_code {
+                width: 300px;
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            #weixin_modal .qr_code img {
+                margin: 20px 0;
+            }
+
+            #weixin_modal .guide {
+                display: inline-block;
+            }
+
+            #weixin_modal .guide img {
+                width: 200px;
+            }
+            </style>
+            <div id="weixin_modal" class="modal fade in" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myLargeModalLabel">分享至微信</h4></div>
+                        <div class="modal-body">
+                            <div class="qr_code"><p><img src="" alt="微信二维码加载失败..."></p>
+
+                                <p>打开微信，点击“发现”，使用“扫一扫”即可将职位分享给微信好友或朋友圈。</p></div>
+                            <div class="guide"><img src="./职位管理 - 全部职位 - 周伯通招聘_files/weixin_guide.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="job-list-guide-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body"><a class="text-1212" data-dismiss="modal">
+                            &nbsp;&nbsp;招聘节&nbsp;&nbsp;</a><a class="text-1212" data-dismiss="modal"><img
+                                src="./职位管理 - 全部职位 - 周伯通招聘_files/job-list-guide-2.png"></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- col --></div>
+    <!-- row --></div>
+<!--main end=============主体-->
+<!--footer start=============底部-->
+<include file="Public/footerCompany"/>

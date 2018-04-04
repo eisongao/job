@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta name="keywords" content="招聘,互联网招聘,移动互联网招聘,社交招聘,IT招聘,微信招聘,微博招聘,豆瓣招聘,跳槽,高薪职位">
+	<meta name="description" content="周伯通招聘，最靠谱的招聘社区">
+	<title>企业列表&nbsp;-&nbsp;周伯通招聘</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Common/index_aio.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Common/public.css"/>
+    
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Module/{$Think.CONTROLLER_NAME}_{$Think.ACTION_NAME}.css"/>
+    
+    
+</head>
+<body>
+<!--header start=============头部-->
+<div class="header">
+	<div class="nav_box">
+		<div class="nav_bar">
+			<div class="nav_logo"><a href="/"><img src="__PUBLIC__/images/logo_v4.png"/></a></div>
+			<div class="nav_search">
+				<form method="get" action="/" autocomplete="off"><input class="form-control" type="text" name="keyword" value="" placeholder="企业关键字...">
+					<button type="submit" class="btn btn-link"><span class="fa"><img src="__PUBLIC__/images/shousuo.png"/></span></button>
+				</form>
+			</div>
+			<ul class="nav_items">
+				<li><a href="/">首页</a></li>
+				<li><a href="/">职位</a></li>
+				<li><a href="/e">企业</a></li>
+				<li class="on"><a href="{:U('News/index')}">发现</a></li>
+				<li><a href="/" target="_blank">&nbsp;&nbsp;12.12招聘节&nbsp;&nbsp;</a></li>
+			</ul>
+			<!-- 匿名 -->
+			<ul class="list-unstyled">
+				<li><a href="{:U('Register/company')}" class="text-white">免费发布职位</a> &nbsp;|&nbsp;
+					<a href="{:U('Home/Login/index')}" class="text-white">登录</a> &nbsp;|&nbsp;
+					<a href="{:U('Register/index')}" class="text-white">注册</a> &nbsp;|&nbsp;
+					<a href="/" class="text-white"><i class="fa fa-weibo"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--header end=============头部-->
+<style type="text/css">    *,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#header_search_form *,
+#header_search_form *:before,
+#header_search_form *:after,
+.job_search *,
+.job_search *:before,
+.job_search *:after {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.wei-user-list li {
+	position: relative;
+}
+.wei-user-list .promotion {
+	position: absolute;
+	top: 12px;
+	left: 80px;
+}
+</style>

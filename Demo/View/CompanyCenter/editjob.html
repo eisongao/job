@@ -1,0 +1,179 @@
+<include file="Public/headerCompany"/>
+<!--主要内容开始-->
+<link href="__PUBLIC__/Css/Common/bootstrap-datetimepicker.css" rel="stylesheet">
+
+<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="http://www.jobtong.com/e" class="text-label small">全部企业</a></li>
+			<li><a href="http://www.jobtong.com/e?industry=99" class="text-label small">其他</a></li>
+			<li class="active small">企业详细信息</li>
+		</ol>
+	</div>
+	<div class="row wei-user-heading">
+		<div class="pull-left wei-user-logo"><img class="img-border" src="__PUBLIC__/images/d08b0.PNG" alt="上海禾石文化传播有限公司Logo"></div>
+		<h3 class="title ellipsis">上海禾石文化传播有限公司</h3>
+
+		<p class="abstract text-label ellipsis">弹性上班</p>
+
+		<div class="pull-left"><a class="btn btn-sm btn-default" href="http://www.jobtong.com/e/admin/basic"><i class="fa fa-gears"></i>&nbsp;修改资料</a></div>
+	</div>
+</div>
+<div class="container-fluid container-nav-tabs-2">
+	<div class="container">
+		<ul class="nav nav-tabs-2" role="tablist">
+			<li><a href="http://www.jobtong.com/e/12881">企业主页</a></li>
+			<li><a href="http://www.jobtong.com/e/12881">全部职位</a></li>
+			<li><a href="http://www.jobtong.com/e/12881">评论</a></li>
+			<li class="active"><a href="http://www.jobtong.com/e/admin">管理</a></li>
+		</ul>
+	</div>
+</div>
+<div class="container">
+	<div class="row wei-user-admin-container">
+		<!--右侧菜单-->
+        <include file="Public/menuCompany"/>
+        <!--右侧内容-->
+		<div class="col-xs-15 col-md-10 wei-user-admin-content">
+        <h3 class="wei-user-admin-title-bar">编辑职位</h3>
+
+			<form class="form-horizontal" id="form" method="post" action="/WeiUserAdminJob/doPost">
+                <input name="uuid" id="uuid" value=" " type="hidden">
+                <input name="category_id" id="category_id" value="44" type="hidden">
+
+				<div class="form-group">
+                    <label class="col-sm-2 control-label" for="need_count">职位分类&nbsp;<span>*</span></label>
+
+					<div class="col-sm-10"><p class="form-control-static"><span>技术类 &gt; 技术管理 &gt; 技术经理</span>&nbsp;
+						<a href="#" class="text-primary">重新选择</a></p></div>
+				</div>
+				<div class="form-group">
+                    <label class="col-sm-2 control-label" for="thread_title">标题党&nbsp;<span>*</span></label>
+
+					<div class="col-sm-5"><input class="form-control" id="thread_title" name="thread_title" value="我们热情邀请你加入" placeholder="必填" type="text"><span class="help-block">求一段给力的标题党</span></div>
+				</div>
+				<div class="form-group">
+                    <label class="col-sm-2 control-label" for="name">职位名称&nbsp;<span>*</span></label>
+
+					<div class="col-sm-5"><input class="form-control" id="name" name="name" value="运营维护管理" placeholder="必填" type="text"><span class="help-block">职位名称不能重复</span></div>
+				</div>
+				<div class="form-group">
+                    <label class="col-sm-2 control-label" for="salary_min">月薪&nbsp;<span>*</span></label>
+
+					<div class="col-sm-5 form-inline"><input class="form-control" style="width:80px;" id="salary_min" name="salary_min" value="2" placeholder="1-100" type="text">&nbsp;K&nbsp;-&nbsp;
+						<input class="form-control" style="width:80px;" id="salary_max" name="salary_max" value="3" placeholder="1-100" type="text">&nbsp;K&nbsp;
+						<span>（1K = 1000元）</span><span class="help-block">最高月薪不能大于最低月薪的2倍</span></div>
+				</div>
+				<div class="form-group">
+                    <label class="col-sm-2 control-label" for="need_count">招聘人数&nbsp;<span>*</span></label>
+
+					<div class="col-sm-5 form-inline"><input class="form-control" style="width: 60px;" id="need_count" name="need_count" value="2" placeholder="数字" type="text">&nbsp;
+						<input class="form-control" style="margin-top:-2px;" id="need_count_checkbox" type="checkbox">&nbsp;若干
+					</div>
+				</div>
+				<div class="form-group"><label class="col-sm-2 control-label" for="city_id">所在城市&nbsp;<span>*</span></label>
+
+					<div class="col-sm-5"><select class="form-control" name="city_id">
+						<option value="11">北京</option>
+						<option value="12" selected="selected">上海</option>
+						<option value="13">广州</option>
+						<option value="14">深圳</option>
+						<option value="15">杭州</option>
+						<option value="16">苏州</option>
+						<option value="17">南京</option>
+						<option value="18">大连</option>
+						<option value="19">成都</option>
+						<option value="21">天津</option>
+						<option value="22">沈阳</option>
+						<option value="23">长春</option>
+						<option value="24">哈尔滨</option>
+						<option value="25">石家庄</option>
+						<option value="26">秦皇岛</option>
+						<option value="27">太原</option>
+						<option value="28">呼和浩特</option>
+						<option value="31">无锡</option>
+						<option value="32">济南</option>
+						<option value="33">厦门</option>
+						<option value="34">宁波</option>
+						<option value="35">福州</option>
+						<option value="36">青岛</option>
+						<option value="37">合肥</option>
+						<option value="38">扬州</option>
+						<option value="41">香港</option>
+						<option value="42">武汉</option>
+						<option value="43">郑州</option>
+						<option value="44">长沙</option>
+						<option value="45">海南</option>
+						<option value="46">佛山</option>
+						<option value="47">南昌</option>
+						<option value="48">珠海</option>
+						<option value="49">东莞</option>
+						<option value="410">南宁</option>
+						<option value="51">西安</option>
+						<option value="52">重庆</option>
+						<option value="53">昆明</option>
+						<option value="54">乌鲁木齐</option>
+						<option value="55">兰州</option>
+						<option value="56">贵阳</option>
+						<option value="57">西宁</option>
+					</select>
+                    </div>
+				</div>
+				<div class="form-group"><label class="col-sm-2 control-label" for="min_degree">最低学历&nbsp;<span>*</span></label>
+
+					<div class="col-sm-5">
+                    <select class="form-control" name="min_degree">
+						<option value="0" selected="selected">不限</option>
+						<option value="1">专科</option>
+						<option value="2">本科</option>
+						<option value="3">硕士</option>
+						<option value="4">博士</option>
+					</select>
+                    </div>
+				</div>
+				<div class="form-group"><label class="col-sm-2 control-label" for="min_experience">最低工作年限&nbsp;<span>*</span></label>
+
+					<div class="col-sm-5"><select class="form-control" name="min_experience">
+						<option value="0" selected="selected">不限</option>
+						<option value="1">1年</option>
+						<option value="2">2年</option>
+						<option value="3">3年</option>
+						<option value="4">4年</option>
+						<option value="5">5年</option>
+						<option value="6">6年</option>
+						<option value="7">7年</option>
+						<option value="8">8年</option>
+						<option value="9">9年</option>
+						<option value="10">10年</option>
+					</select>
+                    </div>
+				</div>
+				<div class="form-group">
+                    <label class="col-sm-2 control-label" for="responsibility">岗位职责&nbsp;<span>*</span></label>
+
+					<div class="col-sm-8"><textarea class="form-control" rows="8" cols="30" id="responsibility" name="responsibility" placeholder="必填（无需包含“岗位职责”、“主要职责”等字样）">负责公司的官方网站和购物网站的日常维护</textarea><span class="help-block">无需包含“岗位职责”、“主要职责”等字样</span></div>
+				</div>
+				<div class="form-group"><label class="col-sm-2 control-label" for="requirement">任职要求&nbsp;<span>*</span></label>
+
+					<div class="col-sm-8"><textarea class="form-control" rows="8" cols="30" id="requirement" name="requirement" placeholder="必填（无需包含“任职要求”、“要求”等字样）">负责公司的官方网站和购物网站的日常维护</textarea><span class="help-block">无需包含“任职要求”、“要求”等字样</span></div>
+				</div>
+				<div class="form-group"><label class="col-sm-2 control-label" for="status">职位状态&nbsp;<span>*</span></label>
+
+					<div class="col-sm-10"><label class="radio inline"><input name="status" id="status" value="1" type="radio">开启</label><label class="radio inline"><input name="status" id="status" value="0" checked="checked" type="radio">关闭</label></div>
+				</div>
+				<div class="form-group"><label class="col-sm-2 control-label">&nbsp;</label>
+
+					<div class="col-sm-10">
+						<button type="submit" class="btn btn-primary">发布</button>
+						&nbsp;
+						<button type="button" class="btn btn-default" onclick="history.go(-1)">取消</button>
+					</div>
+				</div>
+			</form>
+			
+		</div>
+		<!-- col --></div>
+	<!-- row --></div>
+<!--main end=============主体-->
+<!--footer start=============底部-->
+<include file="Public/footerCompany"/>

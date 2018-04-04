@@ -1,0 +1,286 @@
+<include file="Public/headerCompany"/>
+<!--主要内容开始-->
+<link href="__PUBLIC__/Css/Common/bootstrap-datetimepicker.css" rel="stylesheet">
+
+<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="http://www.jobtong.com/e" class="text-label small">全部企业</a></li>
+			<li><a href="http://www.jobtong.com/e?industry=99" class="text-label small">其他</a></li>
+			<li class="active small">企业详细信息</li>
+		</ol>
+	</div>
+	<div class="row wei-user-heading">
+		<div class="pull-left wei-user-logo"><img class="img-border" src="__PUBLIC__/images/d08b0.PNG" alt="上海禾石文化传播有限公司Logo"></div>
+		<h3 class="title ellipsis">上海禾石文化传播有限公司</h3>
+
+		<p class="abstract text-label ellipsis">弹性上班</p>
+
+		<div class="pull-left"><a class="btn btn-sm btn-default" href="http://www.jobtong.com/e/admin/basic"><i class="fa fa-gears"></i>&nbsp;修改资料</a></div>
+	</div>
+</div>
+<div class="container-fluid container-nav-tabs-2">
+	<div class="container">
+		<ul class="nav nav-tabs-2" role="tablist">
+			<li><a href="http://www.jobtong.com/e/12881">企业主页</a></li>
+			<li><a href="http://www.jobtong.com/e/12881">全部职位</a></li>
+			<li><a href="http://www.jobtong.com/e/12881">评论</a></li>
+			<li class="active"><a href="http://www.jobtong.com/e/admin">管理</a></li>
+		</ul>
+	</div>
+</div>
+<div class="container">
+	<div class="row wei-user-admin-container">
+		<!--右侧菜单-->
+        <include file="Public/menuCompany"/>
+        <!--右侧内容-->
+		<div class="col-xs-15 col-md-10 wei-user-admin-content">
+            <style type="text/css">    #update_profile_form .form-group:last-child {
+                margin-bottom: 0px;
+            }
+            #upload_logo_form .form-group:first-child {
+                margin-bottom: 20px;
+            }
+            #logo {
+                position: relative;
+            }
+            #logo a {
+                position: absolute;
+                bottom: 0;
+                left: 200px;
+            }
+            #logo_img {
+                width: 180px;
+                height: 180px;
+            }
+            #logo-edit-btn {
+                width: 180px;
+                height: 30px;
+                line-height: 30px;
+                color: #FFF;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.3);
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+            #logo_select {
+                text-align: center;
+            }
+            #logo_select h1 {
+                margin: 0 0 0 30px;
+                text-align: left;
+            }
+            #logo_select > div {
+                padding: 10px 30px;
+            }
+            #logo_select img {
+                width: 310px;
+            }
+            #logo_select .preview_face {
+                float: left;
+                position: relative;
+                width: 180px;
+                height: 180px;
+                overflow: hidden;
+                margin-left: 10px;
+            }
+            </style>
+            <div class="wei-user-admin-title-bar">
+                <div class="container-nav-tabs-2">
+                    <ul class="nav nav-tabs-2" role="tablist">
+                        <li class="active"><a href="./企业信息 - 周伯通招聘_files/企业信息 - 周伯通招聘.html">企业信息</a></li>
+                        <li class="notifier"><a href="http://www.jobtong.com/e/admin/financing">融资信息</a></li>
+                        <li class="notifier"><a href="http://www.jobtong.com/e/admin/bonus">福利标签</a></li>
+                        <li class=""><a href="http://www.jobtong.com/e/admin/production">产品介绍</a></li>
+                        <li class="notifier"><a href="http://www.jobtong.com/e/admin/news">相关报道</a></li>
+                    </ul>
+                </div>
+            </div>
+            <form class="form-horizontal" id="form" method="post"
+                  action="http://www.jobtong.com/WeiUserAdminAccount/saveBasic" enctype="multipart/form-data">
+            <div class="form-group"><label class="col-sm-2 control-label"
+                                           for="name"><span>*</span>&nbsp;企业名称</label>
+
+                <div class="col-sm-5"><input class="form-control" type="text" id="name" name="name"
+                                             value="上海禾石文化传播有限公司" placeholder="与营业执照一致的企业全名"></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="alias">企业简称</label>
+
+                <div class="col-sm-5"><input class="form-control" type="text" id="alias" name="alias"
+                                             value="上海禾石文化传播有限公司" placeholder="大众熟知的企业简称"></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label"
+                                           for="city_id"><span>*</span>&nbsp;所在城市</label>
+
+                <div class="col-sm-5"><select class="form-control" name="city_id" id="city_id">
+                    <option value="11">北京</option>
+                    <option value="12" selected="">上海</option>
+                    <option value="13">广州</option>
+                    <option value="14">深圳</option>
+                    <option value="15">杭州</option>
+                    <option value="16">苏州</option>
+                    <option value="17">南京</option>
+                    <option value="18">大连</option>
+                    <option value="19">成都</option>
+                    <option value="21">天津</option>
+                    <option value="22">沈阳</option>
+                    <option value="23">长春</option>
+                    <option value="24">哈尔滨</option>
+                    <option value="25">石家庄</option>
+                    <option value="26">秦皇岛</option>
+                    <option value="27">太原</option>
+                    <option value="28">呼和浩特</option>
+                    <option value="31">无锡</option>
+                    <option value="32">济南</option>
+                    <option value="33">厦门</option>
+                    <option value="34">宁波</option>
+                    <option value="35">福州</option>
+                    <option value="36">青岛</option>
+                    <option value="37">合肥</option>
+                    <option value="38">扬州</option>
+                    <option value="41">香港</option>
+                    <option value="42">武汉</option>
+                    <option value="43">郑州</option>
+                    <option value="44">长沙</option>
+                    <option value="45">海南</option>
+                    <option value="46">佛山</option>
+                    <option value="47">南昌</option>
+                    <option value="48">珠海</option>
+                    <option value="49">东莞</option>
+                    <option value="410">南宁</option>
+                    <option value="51">西安</option>
+                    <option value="52">重庆</option>
+                    <option value="53">昆明</option>
+                    <option value="54">乌鲁木齐</option>
+                    <option value="55">兰州</option>
+                    <option value="56">贵阳</option>
+                    <option value="57">西宁</option>
+                </select></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="address">详细地址</label>
+
+                <div class="col-sm-5"><input class="form-control" type="text" id="address" name="address" value=""
+                                             placeholder="详细地址"></div>
+            </div>
+            
+            <div class="form-group"><label class="col-sm-2 control-label" for="size"><span>*</span>&nbsp;企业规模</label>
+
+                <div class="col-sm-5"><select class="form-control" name="size" id="size">
+                    <option value="1" selected="">15人以下</option>
+                    <option value="2">15-50人</option>
+                    <option value="3">50-150人</option>
+                    <option value="4">150-500人</option>
+                    <option value="5">500-2000人</option>
+                    <option value="6">2000人以上</option>
+                </select></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="nature"><span>*</span>&nbsp;公司性质</label>
+
+                <div class="col-sm-5"><select class="form-control" name="nature" id="nature">
+                    <option value="1" selected="">私企</option>
+                    <option value="2">外企</option>
+                    <option value="3">国企</option>
+                    <option value="4">中外合资</option>
+                </select></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="industry_id"><span>*</span>&nbsp;所属行业</label>
+
+                <div class="col-sm-5"><select class="form-control" name="industry_id">
+                    <option value="1">互联网</option>
+                    <option value="2">移动互联网</option>
+                    <option value="3">游戏</option>
+                    <option value="4">电子商务</option>
+                    <option value="5">新媒体</option>
+                    <option value="6">广告</option>
+                    <option value="7">金融</option>
+                    <option value="8">IT/软件</option>
+                    <option value="9">通信</option>
+                    <option value="10">教育</option>
+                    <option value="99" selected="">其他</option>
+                </select></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="abstract"><span>*</span>&nbsp;一句话亮点介绍</label>
+
+                <div class="col-sm-10"><input class="form-control" type="text" id="abstract" name="abstract"
+                                              value="弹性上班" placeholder="如：团队优势、福利待遇、办公环境等"></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="description"><span>*</span>&nbsp;企业介绍</label>
+
+                <div class="col-sm-10">
+                <textarea class="form-control" rows="6" id="description" name="description" placeholder="">养生行业的培训基地。</textarea>
+                <span class="help-block">来点个性、特色、无节操的介绍文案吧！如果想显著提高求职者的投递荷尔蒙的话！</span>
+                </div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="website">企业网站</label>
+
+                <div class="col-sm-5"><input class="form-control" type="text" id="website" name="website" value="" placeholder="公司网站或公司官方微博地址"></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="contact_name"><span>*</span>&nbsp;联系人</label>
+
+                <div class="col-sm-5"><input class="form-control" type="text" id="contact_name" name="contact_name" value="文昕" placeholder="联系人姓名"></div>
+            </div>
+            <div class="form-group"><label class="col-sm-2 control-label" for="contact_phone"><span>*</span>&nbsp;联系方式</label>
+
+                <div class="col-sm-5"><input class="form-control" type="text" id="contact_phone" name="contact_phone" value="13521355358" placeholder="手机或座机"></div>
+            </div>
+            </form>
+            <form id="upload_logo_form" class="form-horizontal" role="form" method="post" action=" " enctype="multipart/form-data"
+                  style="margin-top: -40px;">
+                <div class="form-group"><label class="col-sm-2 control-label" for="city_id"><span>*</span>&nbsp;企业Logo</label>
+
+                    <div class="col-sm-5">
+                        <div id="logo">
+                        <!-- IE9 下需通过label 触发隐藏的文件选择，jquery.form.js才不会报错 --><label style="display: block; margin-top: 5px;"><img id="logo_img" class="img-border" src="__PUBLIC__/images/plus.png"><input id="logo_file" type="file" name="logo" accept="image/gif, image/jpeg, image/png" style="display:none;"><span id="logo-edit-btn" style="">修改</span></label></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button id="submit-btn" type="submit" class="btn btn-lg btn-highlight btn-min-width-100"
+                                onclick="saveBasic();return false;">保存
+                        </button>
+                        &nbsp;
+                    </div>
+                </div>
+            </form>
+            <div class="modal" id="logo_select" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" onclick="cancelFaceSelect();"><span
+                                    aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                            <h4 class="modal-title">截取Logo</h4></div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="img"><img id="origin_face_img" src="" style="float:left;"></div>
+                                <div style="clear: left;"></div>
+                            </div>
+                            <form id="save_logo_form" method="post"
+                                  action="http://www.jobtong.com/WeiUserAdmin/saveLogo"><input type="hidden"
+                                                                                               name="origin_image_name"
+                                                                                               value=""
+                                                                                               id="origin_image_name"><input
+                                    type="hidden" name="x1" value="" id="x1"><input type="hidden" name="y1" value=""
+                                                                                    id="y1"><input type="hidden"
+                                                                                                   name="x2" value=""
+                                                                                                   id="x2"><input
+                                    type="hidden" name="y2" value="" id="y2"><input type="hidden" name="w" value=""
+                                                                                    id="w"><input type="hidden" name="h"
+                                                                                                  value="" id="h">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"
+                                    onclick="$(&#39;#save_logo_form&#39;).submit();return false;">保存
+                            </button>
+                            <button type="button" class="btn btn-default" onclick="cancelFaceSelect();">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+		<!-- col --></div>
+	<!-- row --></div>
+<!--main end=============主体-->
+<!--footer start=============底部-->
+<include file="Public/footerCompany"/>

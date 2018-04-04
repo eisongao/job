@@ -1,0 +1,88 @@
+<include file="Public/headerCompany"/>
+<!--主要内容开始-->
+<link href="__PUBLIC__/Css/Common/bootstrap-datetimepicker.css" rel="stylesheet">
+
+<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="http://www.jobtong.com/e" class="text-label small">全部企业</a></li>
+			<li><a href="http://www.jobtong.com/e?industry=99" class="text-label small">其他</a></li>
+			<li class="active small">企业详细信息</li>
+		</ol>
+	</div>
+	<div class="row wei-user-heading">
+		<div class="pull-left wei-user-logo"><img class="img-border" src="__PUBLIC__/images/d08b0.PNG" alt="上海禾石文化传播有限公司Logo"></div>
+		<h3 class="title ellipsis">上海禾石文化传播有限公司</h3>
+
+		<p class="abstract text-label ellipsis">弹性上班</p>
+
+		<div class="pull-left"><a class="btn btn-sm btn-default" href="http://www.jobtong.com/e/admin/basic"><i class="fa fa-gears"></i>&nbsp;修改资料</a></div>
+	</div>
+</div>
+<div class="container-fluid container-nav-tabs-2">
+	<div class="container">
+		<ul class="nav nav-tabs-2" role="tablist">
+			<li><a href="http://www.jobtong.com/e/12881">企业主页</a></li>
+			<li><a href="http://www.jobtong.com/e/12881">全部职位</a></li>
+			<li><a href="http://www.jobtong.com/e/12881">评论</a></li>
+			<li class="active"><a href="http://www.jobtong.com/e/admin">管理</a></li>
+		</ul>
+	</div>
+</div>
+<div class="container">
+	<div class="row wei-user-admin-container">
+		<!--右侧菜单-->
+        <include file="Public/menuCompany"/>
+        <!--右侧内容-->
+		<div class="col-xs-15 col-md-10 wei-user-admin-content">
+			<div class="wei-user-admin-title-bar">
+				<div class="container-nav-tabs-2">
+					<ul class="nav nav-tabs-2" role="tablist">
+						<li class=""><a href="http://www.jobtong.com/e/admin/basic">企业信息</a></li>
+						<li class="activenotifier"><a href="./融资信息 - 周伯通招聘_files/融资信息 - 周伯通招聘.html">融资信息</a></li>
+						<li class="notifier"><a href="http://www.jobtong.com/e/admin/bonus">福利标签</a></li>
+						<li class=""><a href="http://www.jobtong.com/e/admin/production">产品介绍</a></li>
+						<li class="notifier"><a href="http://www.jobtong.com/e/admin/news">相关报道</a></li>
+					</ul>
+				</div>
+			</div>
+			<h4>公司融资历程</h4>
+			<ul id="financing-stage-list" class="card-flow card-flow-border clearfix">
+				<li class="card">
+					<form role="form" action="http://www.jobtong.com/WeiUserAdminAccount/saveFinancingStage"
+					      method="post">
+						<div class="form-group"><label for="">融资阶段</label><select class="form-control" name="stage">
+							<option value="">-添加阶段-</option>
+							<option value="angel">天使</option>
+							<option value="A">A轮</option>
+							<option value="B">B轮</option>
+							<option value="C">C轮</option>
+							<option value="D">D轮</option>
+							<option value="E">E轮</option>
+							<option value="F">F轮</option>
+							<option value="public">上市</option>
+						</select></div>
+						<div class="form-group">
+                            <label for="">融资金额</label>
+                            <input type="text" name="amount" value="" class="form-control" placeholder="如：100万美元">
+                        </div>
+						<div class="form-group"><label for="">融资时间</label>
+                            <input type="text" name="date" value="" class="form-control" data-toggle="date_picker" data-date-format="YYYY-MM-DD" placeholder="年-月-日">
+                        </div>
+						<div class="form-group">
+                            <label for="">投资机构</label>
+                            <input type="text" name="agency" value="" class="form-control" placeholder="如：网易资本">
+                        </div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-block btn-default js-save-btn">添加</button>
+							<button type="submit" class="btn btn-block btn-default js-delete-btn" data-stage="" disabled="disabled">删除</button>
+						</div>
+					</form>
+				</li>
+			</ul>
+		</div>
+		<!-- col --></div>
+	<!-- row --></div>
+<!--main end=============主体-->
+<!--footer start=============底部-->
+<include file="Public/footerCompany"/>

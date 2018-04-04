@@ -1,0 +1,98 @@
+<div id="comment_list">
+	<h4>评论</h4>
+
+	<div class="comment-widget">
+		<ul class="comment-list">
+			<li id="comment_13189" class="media comment"><a class="pull-left js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="338007" data-receivers="xiao丸子"><img class="pull-left media-object img-border" src="__PUBLIC__/images/user_face_23.jpg"
+			                                                                                                                                                                                                              alt="xiao丸子" width="48" height="48" data-toggle="tooltip"
+			                                                                                                                                                                                                              data-placement="bottom"
+			                                                                                                                                                                                                              title="私信"/></a>
+
+				<div class="media-body">
+					<h5 class="media-heading"><a class="text-primary js-comment-alias js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="338007" data-receivers="xiao丸子"><span data-toggle="tooltip" data-placement="bottom"
+					                                                                                                                                                                                                                title="私信">xiao丸子</span></a>
+						<small class="pull-right text-muted">12月03日 09:28</small>
+					</h5>
+					<p class="js-comment-content">怎么哪儿都有你身影。</p><a class="pull-right text-primary" href="javascript:;" onclick="Comment.post.setReply(13189);">回应</a></div>
+			</li>
+			<li id="comment_13243" class="media comment"><a class="pull-left js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="330250" data-receivers="Doraemon888"><img class="pull-left media-object img-border" src="__PUBLIC__/images/user_face_23.jpg"
+			                                                                                                                                                                                                                   alt="Doraemon888" width="48" height="48" data-toggle="tooltip"
+			                                                                                                                                                                                                                   data-placement="bottom" title="私信"/></a>
+
+				<div class="media-body">
+					<h5 class="media-heading"><a class="text-primary js-comment-alias js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="330250" data-receivers="Doraemon888"><span data-toggle="tooltip" data-placement="bottom" title="私信">Doraemon888</span></a>
+						<small class="pull-right text-muted">12月03日 10:47</small>
+					</h5>
+					<blockquote class="text-label">怎么哪儿都有你身影。&nbsp;
+
+						<span class="text-primary">xiao丸子</span></blockquote>
+					<p class="js-comment-content">有谁</p><a class="pull-right text-primary" href="javascript:;" onclick="Comment.post.setReply(13243);">回应</a></div>
+			</li>
+			<li id="comment_15845" class="media comment"><a class="pull-left js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="341292" data-receivers="妈妈喊我回家洗澡"><img class="pull-left media-object img-border" src="__PUBLIC__/images/user_face_23.jpg"
+			                                                                                                                                                                                                                alt="妈妈喊我回家洗澡" width="48" height="48" data-toggle="tooltip"
+			                                                                                                                                                                                                                data-placement="bottom" title="私信"/></a>
+
+				<div class="media-body">
+					<h5 class="media-heading"><a class="text-primary js-comment-alias js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="341292" data-receivers="妈妈喊我回家洗澡"><span data-toggle="tooltip" data-placement="bottom"
+					                                                                                                                                                                                                                  title="私信">妈妈喊我回家洗澡</span></a>
+						<small class="pull-right text-muted">12月08日 18:43</small>
+					</h5>
+					<p class="js-comment-content">我在这！！</p><a class="pull-right text-primary" href="javascript:;" onclick="Comment.post.setReply(15845);">回应</a></div>
+			</li>
+			<li id="comment_29694" class="media comment"><a class="pull-left js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="319836" data-receivers="夜影寒"><img class="pull-left media-object img-border" src="__PUBLIC__/images/user_face_23.jpg"
+			                                                                                                                                                                                                           alt="夜影寒"
+			                                                                                                                                                                                                           width="48" height="48" data-toggle="tooltip" data-placement="bottom" title="私信"/></a>
+
+				<div class="media-body">
+					<h5 class="media-heading"><a class="text-primary js-comment-alias js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="319836" data-receivers="夜影寒"><span data-toggle="tooltip" data-placement="bottom" title="私信">夜影寒</span></a>
+						<small class="pull-right text-muted">3小时前</small>
+					</h5>
+					<p class="js-comment-content">约运营？</p><a class="pull-right text-primary" href="javascript:;" onclick="Comment.post.setReply(29694);">回应</a></div>
+			</li>
+			<script type="text/html" id="js-comment-template">
+				<li
+						id="comment_<%= comment_id %>" class="media comment"><% if (role === 'wei_user') { %><a class="pull-left" href="/e/<%= user.id %>" target="_blank"><img class="media-object img-border" src="<%= user.logo_url %>" alt="<%= user.alias %>" width="48" height="48"
+				                                                                                                                                                                data-toggle="tooltip"
+				                                                                                                                                                                data-placement="bottom" title="企业主页"></a><% }else if (role === 'user') { %><a class="pull-left js-message-btn"
+				                                                                                                                                                                                                                                              data-toggle="modal"
+				                                                                                                                                                                                                                                              data-target="#message-send-dialog"
+				                                                                                                                                                                                                                                              data-to-role="user"
+				                                                                                                                                                                                                                                              data-to-uid="<%= user.id %>"
+				                                                                                                                                                                                                                                              data-receivers="<%= user.alias %>"><img
+						class="pull-left media-object img-border" src="<%= user.photo_url %>" alt="<%= user.alias %>" width="48" height="48" data-toggle="tooltip" data-placement="bottom" title="私信"/></a><% } %>
+					<div class="media-body">
+						<h5 class="media-heading"><% if (role === 'wei_user') { %><a class="text-primary js-comment-alias" href="/e/<%= user.id %>" target="_blank"><span data-toggle="tooltip" data-placement="bottom" title="企业主页"><%= user.alias %></span></a><% }else if (role === 'user') { %><a
+								class="text-primary js-comment-alias js-message-btn" data-toggle="modal" data-target="#message-send-dialog" data-to-role="user" data-to-uid="<%= user.id %>" data-receivers="<%= user.alias %>"><span data-toggle="tooltip" data-placement="bottom"
+						                                                                                                                                                                                                              title="私信"><%= user.alias %></span></a><% } %>
+							<small class="pull-right text-muted">刚刚</small>
+						</h5>
+						<% if (reply_quote) { %>
+						<blockquote class="text-label"><%= reply_quote %>&nbsp;<span class="text-primary"><%= reply_alias %></span></blockquote>
+						<% } %><p class="js-comment-content"><%= content %></p><a class="pull-right text-primary" href="javascript:;" onclick="Comment.post.setReply(<%= comment_id %>);">回应</a></div>
+				</li></script>
+		</ul>
+		<div class="clearfix">
+			<div class="pull-right">
+				<div class="page"><span class="pre"></span> <span class="next"></span> <span class="total">共1页 / 共4条</span></div>
+			</div>
+		</div>
+		<div class="comment-post"><h4>你的回应</h4>
+
+			<div class="alert alert-info" role="alert" style="display: none;"><a class="pull-right" href="javascript:;" onclick="Comment.post.unsetReply();">&times;</a><span class="js-alert-content"></span></div>
+			<textarea class="form-control" rows="5"></textarea>
+			<button class="btn btn-primary pull-right" onclick="Comment.post.save();">发表评论</button>
+			<p class="mask" style="display: none;"> 登录后就可以评论啦&nbsp;<a href="javascript:;" class="text-primary js-login-dialog-btn" data-ref="http://www.jobtong.com/e/1062">立即登录</a>&nbsp;|&nbsp;<a class="text-primary" href="/register?ref=http%3A%2F%2Fwww.jobtong.com%2Fe%2F1062">注册</a></p></div>
+	</div>
+	<script>$(function () {
+		Comment.post.init('wei_user', '1062');
+
+		if ( !UID ) {
+			Comment.post.setStatus('disabled');
+		}
+
+		$('.comment-widget').find('.page').find('a').each(function (i, n) {
+			$(n).attr('href', $(n).attr('href') + '#comment_list');
+		});
+	});
+	</script>
+</div>

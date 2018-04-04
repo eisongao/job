@@ -1,0 +1,389 @@
+<include file="Public/headerCompany"/>
+<!--主要内容开始-->
+<link href="__PUBLIC__/Css/Common/bootstrap-datetimepicker.css" rel="stylesheet">
+
+<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="http://www.jobtong.com/e" class="text-label small">全部企业</a></li>
+			<li><a href="http://www.jobtong.com/e?industry=99" class="text-label small">其他</a></li>
+			<li class="active small">企业详细信息</li>
+		</ol>
+	</div>
+	<div class="row wei-user-heading">
+		<div class="pull-left wei-user-logo"><img class="img-border" src="__PUBLIC__/images/d08b0.PNG" alt="上海禾石文化传播有限公司Logo"></div>
+		<h3 class="title ellipsis">上海禾石文化传播有限公司</h3>
+
+		<p class="abstract text-label ellipsis">弹性上班</p>
+
+		<div class="pull-left"><a class="btn btn-sm btn-default" href="http://www.jobtong.com/e/admin/basic"><i class="fa fa-gears"></i>&nbsp;修改资料</a></div>
+	</div>
+</div>
+<div class="container-fluid container-nav-tabs-2">
+	<div class="container">
+		<ul class="nav nav-tabs-2" role="tablist">
+			<li><a href="http://www.jobtong.com/e/12881">企业主页</a></li>
+			<li><a href="http://www.jobtong.com/e/12881">全部职位</a></li>
+			<li><a href="http://www.jobtong.com/e/12881">评论</a></li>
+			<li class="active"><a href="http://www.jobtong.com/e/admin">管理</a></li>
+		</ul>
+	</div>
+</div>
+<div class="container">
+	<div class="row wei-user-admin-container">
+		<!--右侧菜单-->
+        <include file="Public/menuCompany"/>
+        <!--右侧内容-->
+		<div class="col-xs-15 col-md-10 wei-user-admin-content">
+            <div class="wei-user-admin-title-bar">
+                <div id="apply-tab" class="container-nav-tabs-2">
+                    <ul class="nav nav-tabs-2" role="tablist">
+                        <li class="active"><a href="./简历管理 - 全部简历 - 周伯通招聘_files/简历管理 - 全部简历 - 周伯通招聘.html">全部简历</a></li>
+                        <li class=" js-btn-apply-unprocessed"><a
+                                href="http://www.jobtong.com/e/admin/apply/unprocessed">未处理简历&nbsp;<span
+                                class="text-highlight">(0)</span></a></li>
+                        <li class=" js-btn-apply-interview"><a href="http://www.jobtong.com/e/admin/apply/interview">已通知面试&nbsp;<span
+                                class="text-default">(0)</span></a></li>
+                        <li><a href="http://www.jobtong.com/e/admin/apply/offer">已发offer</a></li>
+                        <li><a href="http://www.jobtong.com/e/admin/apply/bad">不合适简历</a></li>
+                    </ul>
+                </div>
+                <form id="apply-search" class="form-inline btn-toolbar-inline"
+                      action="http://www.jobtong.com/e/admin/apply/search" method="get">
+                    <div class="form-group"><input class="form-control" type="text" name="keyword" value=""
+                                                   placeholder="用户姓名/邮箱/手机">&nbsp;
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default"><i class="fa"></i>&nbsp;搜索简历</button>
+                        <a id="toggle-advanced-filters" class="btn btn-link" href="">高级筛选&nbsp;<i class="fa">∧<!--∨--></i></a></div>
+                </form>
+                <ul id="apply-filter" class="filter-group hidden">
+                    <li class="filter-group-item js-filter-options"><label class="filter-label">申请职位</label>
+                        <ul class="filter">
+                            <li class="filter-item"><a href="javascript:void(0);" class="text-primary selected"
+                                                       data-query="job_id=">全部</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="job_id=68852">运营维护管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="filter-group-item js-filter-options"><label class="filter-label">经验</label>
+                        <ul class="filter">
+                            <li class="filter-item"><a href="javascript:void(0);" class="text-primary selected"
+                                                       data-query="experience=">全部</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="experience=graduate">应届毕业生</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="experience=1">1年以上</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="experience=2">2年以上</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="experience=3">3年以上</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="experience=5">5年以上</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="experience=10">10年以上</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="filter-group-item js-filter-options"><label class="filter-label">学历要求</label>
+                        <ul class="filter">
+                            <li class="filter-item"><a href="javascript:void(0);" class="text-primary selected"
+                                                       data-query="degree=">全部</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="degree=0">专科以下</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="degree=1">专科</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="degree=2">本科</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="degree=3">硕士</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="degree=4">博士</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="filter-group-item js-filter-options"><label class="filter-label">投递时间</label>
+                        <ul class="filter">
+                            <li class="filter-item"><a href="javascript:void(0);" class="text-primary selected"
+                                                       data-query="days=">全部</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="days=1">今天</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="days=3">三天内</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="days=7">一周内</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="days=30">一个月内</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="days=90">三个月内</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="filter-group-item js-filter-options"><label class="filter-label">年龄</label>
+                        <ul class="filter">
+                            <li class="filter-item"><a href="javascript:void(0);" class="text-primary selected"
+                                                       data-query="age=">全部</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="age=25">25岁以下</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="age=30">30岁以下</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="age=35">35岁以下</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="age=40">40岁以下</a>
+                            </li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="age=50">50岁以下</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="filter-group-item js-filter-options"><label class="filter-label">性别</label>
+                        <ul class="filter">
+                            <li class="filter-item"><a href="javascript:void(0);" class="text-primary selected"
+                                                       data-query="sex=">全部</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="sex=1">男</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class="" data-query="sex=0">女</a></li>
+                        </ul>
+                    </li>
+                    <li class="filter-group-item js-filter-options"><label class="filter-label">状态</label>
+                        <ul class="filter">
+                            <li class="filter-item"><a href="javascript:void(0);" class="text-primary selected"
+                                                       data-query="status=">全部</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=unread">未读</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=unprocessed">已读</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=interview">待面试</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=offer">待回应</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=acceptoffer">已接受</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=rejectoffer">已拒绝</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=badresume">简历不合适</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=badinterview">面试不合适</a></li>
+                            <li class="filter-item"><a href="javascript:void(0);" class=""
+                                                       data-query="status=notarchived">未归档</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <table id="apply-list" class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>职位名称</th>
+                    <th style="width:80px;">个人简历</th>
+                    <th style="width:50px;">性别</th>
+                    <th style="width:50px;">年龄</th>
+                    <th style="width:50px;">学历</th>
+                    <th style="width:50px;">经验</th>
+                    <th>当前公司/职位</th>
+                    <th>投递时间</th>
+                    <th style="width:50px;">状态</th>
+                    <th>备注&nbsp;<i class="fa" data-toggle="tooltip" data-placement="bottom" title="对申请者备注，可以方便以后查看"></i></th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="apply_240247">
+                    <td style="white-space:nowrap;"><a class="text-primary" href="http://www.jobtong.com/job/a9ecf37fe483c78e1a7c9502b33c4599" target="_blank" title="运营维护管理">运营维护管理</a></td>
+                    <td><a class="text-primary" href="" target="_blank">王宇飞</a>
+                    </td>
+                    <td>女</td>
+                    <td>24</td>
+                    <td>本科</td>
+                    <td>3年</td>
+                    <td>234234234/34234324</td>
+                    <td style="white-space:nowrap;">11小时前</td>
+                    <td><span class="label label-default">已拒绝offer</span></td>
+                    <td style="white-space:nowrap;">
+                        <div class="popover-hover js-apply-operations"><a class="text-primary js-pop"
+                                                                          href="javascript:;" data-toggle="popover"
+                                                                          data-placement="bottom" title="备注">未备注</a>
+                            <ul class="popover-hover-content hidden vertical-flow">
+                                <li class="vertical-flow-item active js-operation-111111"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">未备注</span><a href="javascript:void(0);"
+                                                                               data-id="111111" class="js-note-edit"
+                                                                               style="display:none;">修改</a></p>
+                                    <small>2014-12-25 11:36</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111107"><p class="title js-note">
+                                    <span>接受</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:35</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111101"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:31</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111100"><p class="title js-note">
+                                    <span>接受</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:31</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111099"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:31</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111098"><p class="title js-note">
+                                    <span>接受</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:31</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111096"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:31</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111095"><p class="title js-note">
+                                    <span>接受</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:31</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111092"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111091"><p class="title js-note">
+                                    <span>接受</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111090"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111088"><p class="title js-note">
+                                    <span>接受</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111087"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111086"><p class="title js-note">
+                                    <span>接受</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111085"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111084"><p class="title js-note">
+                                    <span>接受</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111083"><p class="title js-note">
+                                    <span>拒绝</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:30</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111082"><p class="title js-note">
+                                    <span>offer</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:29</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111064"><p class="title js-note">
+                                    <span>初试</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:27</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                                <li class="vertical-flow-item  js-operation-111030"><p class="title js-note">
+                                    <span>已读</span> &nbsp;&nbsp;
+                                    <span class="js-note-content">无备注</span></p>
+                                    <small>2014-12-25 11:16</small>
+                                                <span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i
+                                                        class="fa fa-circle-o fa-stack-1x"></i></span></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td style="white-space:nowrap;">
+                        <div class="btn-group"><a class="dropdown-toggle btn btn-default" data-toggle="dropdown"><i
+                                class="fa"></i>&nbsp;操作菜单&nbsp;<i class="icon-caret-down"></i></a>
+                            <ul class="dropdown-menu btn-group-share">
+                                <li><a class="js-operation-btn"
+                                       href="http://www.jobtong.com/WeiUserAdminApplyOperation/switchApplyStatus/apply_id/240247/status/ACCEPTOFFER"
+                                       data-apply-id="240247" data-status="ACCEPTOFFER"><i class="fa fa-check"></i>&nbsp;接受offer</a>
+                                </li>
+                                <li><a class="js-forward" data-toggle="modal" data-target="#resumeSendDialog"
+                                       data-apply-id="240247" data-subject="转发：运营维护管理 - 王宇飞的简历"><i
+                                        class="fa fa-envelope-o"></i>&nbsp;转发</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="page"><span class="pre"></span> <span class="next"></span> <span class="total">共1页 / 共1条</span>
+            </div>
+            <div class="modal fade" id="resumeSendDialog" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                            <h4 class="modal-title">转发简历</h4></div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" action="http://www.jobtong.com/WeiUserAdmin/resumeEmail"
+                                  method="post"><input type="hidden" name="apply_id" value="">
+
+                                <div class="form-group"><label class="col-sm-2 control-label control-label-required">邮件主题</label>
+
+                                    <div class="col-sm-10"><input class="form-control" type="text" name="subject"
+                                                                  value="转发： - 的简历" placeholder="邮件主题"
+                                                                  autocomplete="off"></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">收件人</label>
+
+                                    <div class="col-sm-10"><input class="form-control" type="email" name="email"
+                                                                  value="wenxing.ok@163.com" placeholder="收件人">
+
+                                        <p class="help-block">多个收件人以“,”分隔</p></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">附加信息</label>
+
+                                    <div class="col-sm-10"><textarea class="form-control" name="body" rows="5"
+                                                                     placeholder="选填"></textarea></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="sendResume( this );">发送</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+		<!-- col --></div>
+	<!-- row --></div>
+<!--main end=============主体-->
+<!--footer start=============底部-->
+<include file="Public/footerCompany"/>

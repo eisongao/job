@@ -1,0 +1,1055 @@
+<include file="Public/headerResume"/>
+<style type="text/css">    
+	.resume select.form-control {
+        padding: 7px 5px;
+        height: 40px;
+        width: 100px;
+        display: inline;
+    }
+
+    .resume input.form-control {
+        width: 260px;
+        display: inline;
+    }
+
+    .resume .form-horizontal .control-label,
+    .resume .form-horizontal .radio,
+    .resume .form-horizontal .checkbox,
+    .resume .form-horizontal .radio-inline,
+    .resume .form-horizontal .checkbox-inline {
+        padding-top: 12px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .resume .form-horizontal .form-control-static {
+        padding-top: 12px;
+    }
+
+    .ajax-file-upload-statusbar {
+        margin-left: -1px;
+    }
+    
+    .ajax-file-upload {
+        background: #579DDE;
+    }
+
+    .fixer {
+        position: fixed;
+        top: 0px;
+        _position: absolute;
+        _top: e­xpression(documentElement.scrollTop + 10 + "px");
+        width: 1176px;
+        z-index: 999
+    }
+
+    /**************************************************************************
+     * 头像
+     **************************************************************************/
+
+    #basic {
+        position: relative;
+    }
+
+    .upload_face {
+        position: absolute;
+        right: 70px;
+        top: 70px;
+        text-align: center;
+    }
+
+    .user-face {
+        width: 190px;
+        height: 190px;
+        margin-bottom: -15px;
+    }
+
+    .user-face img {
+        width: 180px;
+        height: 180px;
+    }
+
+    #origin_face_img {
+
+    }
+
+    #preview_face_img {
+        width: 180px;
+        height: 180px;
+        border: 1px solid #dfdfdf;
+    }
+
+    #face_select {
+        text-align: center;
+    }
+
+    #face_select h1 {
+        margin: 0 0 0 30px;
+        text-align: left;
+    }
+
+    #face_select > div {
+        padding: 10px 30px;
+    }
+
+    #face_select img {
+        width: 310px;
+    }
+
+    #face_select .preview_face {
+        float: left;
+        position: relative;
+        width: 180px;
+        height: 180px;
+        overflow: hidden;
+        margin-left: 10px;
+    }
+</style>
+<div class="main2">
+	<div class="resume">
+		<ul class="resume_switcher">
+			<li><a href="" class="on">在线简历</a></li>
+			<li><a href="">附件简历</a></li>
+		</ul>
+		<div id="box_placeholder" style="height: 42px; width: 860px; display: none;"></div>
+		<ul class="resume_nav">
+			<li style="width: 168px;"><a href="" class="on">基本信息</a></li>
+			<li style="width: 168px;"><a href="" class="">求职意向</a></li>
+			<li style="width: 168px;"><a href="" class="">自我描述</a></li>
+			<li style="width: 168px;"><a href="" class="">工作经历</a></li>
+			<li style="width: 168px;"><a href="" class="">项目经验</a></li>
+			<li style="width: 168px;"><a href="" class="">教育经历</a></li>
+			<li style="width: 168px;"><a href="">附件/作品</a></li>
+		</ul>
+		<div class="resume_content">
+			<div class="resume_header"><span class="text-muted">简历完成度：</span>
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+						<span class="sr-only">0%</span>
+					</div>
+				</div>
+				<a href="" target="_blank" class="btn btn-default"><i class="icon-eye-open"></i>&nbsp;在线预览</a>
+				<a href="" target="_blank" class="btn btn-default"><i class="icon-download"></i>&nbsp;下载简历</a>
+			</div>
+			<div style="clear:both;"></div>
+			<div id="basic">
+				<div class="resume_title">
+					<h2>基本信息</h2>
+					<a href="" onclick="" class="right"><i class="icon-pencil"></i></a>
+				</div>
+				<div class="upload_face">
+					<div class="user-face">
+						<img id="face_img" class="img-border" src="__PUBLIC__/images/default_user_face.jpg">
+					</div>
+					<form id="form_resume_face_1" method="post" action="" enctype="multipart/form-data">
+					<!-- IE9 下需通过label 触发隐藏的文件选择，jquery.form.js才不会报错 -->
+						<label>
+							<input id="face_file" type="file" name="face" accept="image/gif, image/jpeg, image/png" style="display:none;">
+							<span class="btn btn-primary" href="">上传头像</span>
+						</label>
+					</form>
+				</div>
+				<form class="form-horizontal" role="form" id="resume_basic"></form>
+				<form class="form-horizontal" role="form" id="form_resume_basic" method="post" action="">
+					<div class="form-group">
+						<label for="name" class="col-sm-1 control-label">真实姓名</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="name" name="name" value="" placeholder="真实姓名">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-1 control-label">常用邮箱</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="email" name="email" value="" placeholder="常用邮箱">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mobile" class="col-sm-1 control-label">手机号码</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="mobile" name="mobile" value="" placeholder="手机号码">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="work_status" class="col-sm-1 control-label">当前状态</label>
+						<div class="col-sm-4">
+							<select id="work_status" name="work_status" class="form-control" style="width: 286px;">
+								<option value="1">目前在职，考虑换个环境</option>
+								<option value="2">目前离职，可以快速到岗</option>
+								<option value="3">应届毕业生</option>
+								<option value="4">暂时不找工作</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="sex" class="col-sm-1 control-label">性别</label>
+						<div class="col-sm-4">
+							<div class="radio-inline">
+								<label><input type="radio" name="sex" id="" value="1" alt="男">男</label>
+							</div>
+							<div class="radio-inline">
+								<label><input type="radio" name="sex" id="" value="0" alt="女" checked="">女</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="birth_year" class="col-sm-1 control-label">出生日期</label>
+						<div class="col-sm-6">
+							<select id="birth_year" name="birth_year" class="form-control">
+								<option value="1998">1998</option>
+								<option value="1997">1997</option>
+								<option value="1996">1996</option>
+								<option value="1995">1995</option>
+								<option value="1994">1994</option>
+								<option value="1993">1993</option>
+								<option value="1992">1992</option>
+								<option value="1991">1991</option>
+								<option value="1990" selected="selected">1990</option>
+								<option value="1989">1989</option>
+								<option value="1988">1988</option>
+								<option value="1987">1987</option>
+								<option value="1986">1986</option>
+								<option value="1985">1985</option>
+								<option value="1984">1984</option>
+								<option value="1983">1983</option>
+								<option value="1982">1982</option>
+								<option value="1981">1981</option>
+								<option value="1980">1980</option>
+								<option value="1979">1979</option>
+								<option value="1978">1978</option>
+								<option value="1977">1977</option>
+								<option value="1976">1976</option>
+								<option value="1975">1975</option>
+								<option value="1974">1974</option>
+								<option value="1973">1973</option>
+								<option value="1972">1972</option>
+								<option value="1971">1971</option>
+								<option value="1970">1970</option>
+							</select>&nbsp;年&nbsp;
+							<select name="birth_month" class="form-control">
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>&nbsp;月&nbsp;
+							<select name="birth_day" class="form-control">
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+							</select>&nbsp;日&nbsp;
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="degree_basic" class="col-sm-1 control-label">学历</label>
+						<div class="col-sm-6">
+							<select id="degree_basic" name="degree" class="form-control">
+								<option value="0">专科以下</option>
+								<option value="1">专科</option>
+								<option value="2" selected="selected">本科</option>
+								<option value="3">硕士</option>
+								<option value="4">博士</option>
+							</select>
+							<label style="padding-right: 15px; width: 136px; text-align: right;">工作年限</label>
+							<select name="experience" class="form-control">
+								<option value="0">0年</option>
+								<option value="1">1年</option>
+								<option value="2">2年</option>
+								<option value="3" selected="selected">3年</option>
+								<option value="4">4年</option>
+								<option value="5">5年</option>
+								<option value="6">6年</option>
+								<option value="7">7年</option>
+								<option value="8">8年</option>
+								<option value="9">9年</option>
+								<option value="10">10年</option>
+								<option value="11">10年以上</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="current_province_id" class="col-sm-1 control-label">现居地</label>
+						<div class="col-sm-6">
+							<select id="current_province_id" name="current_province_id" class="form-control">
+								<option value="1">北京</option>
+								<option value="2">天津</option>
+								<option value="3">上海</option>
+								<option value="4">重庆</option>
+								<option value="5">河北</option>
+								<option value="6">山西</option>
+								<option value="7">台湾</option>
+								<option value="8">辽宁</option>
+								<option value="9">吉林</option>
+								<option value="10">黑龙江</option>
+								<option value="11">江苏</option>
+								<option value="12">浙江</option>
+								<option value="13">安徽</option>
+								<option value="14">福建</option>
+								<option value="15">江西</option>
+								<option value="16">山东</option>
+								<option value="17">河南</option>
+								<option value="18">湖北</option>
+								<option value="19">湖南</option>
+								<option value="20">广东</option>
+								<option value="21">甘肃</option>
+								<option value="22">四川</option>
+								<option value="23">贵州</option>
+								<option value="24">海南</option>
+								<option value="25">云南</option>
+								<option value="26">青海</option>
+								<option value="27">陕西</option>
+								<option value="28">广西</option>
+								<option value="29">西藏</option>
+								<option value="30">宁夏</option>
+								<option value="31">新疆</option>
+								<option value="32">内蒙古</option>
+								<option value="33">澳门</option>
+								<option value="34">香港</option>
+							</select>
+							<label style="padding-right: 15px; width: 136px; text-align: right;">籍贯</label>
+							<select id="native_province_id" name="native_province_id" class="form-control">
+								<option value="1">北京</option>
+								<option value="2">天津</option>
+								<option value="3">上海</option>
+								<option value="4">重庆</option>
+								<option value="5">河北</option>
+								<option value="6">山西</option>
+								<option value="7">台湾</option>
+								<option value="8">辽宁</option>
+								<option value="9">吉林</option>
+								<option value="10">黑龙江</option>
+								<option value="11">江苏</option>
+								<option value="12">浙江</option>
+								<option value="13">安徽</option>
+								<option value="14">福建</option>
+								<option value="15">江西</option>
+								<option value="16">山东</option>
+								<option value="17">河南</option>
+								<option value="18">湖北</option>
+								<option value="19">湖南</option>
+								<option value="20">广东</option>
+								<option value="21">甘肃</option>
+								<option value="22">四川</option>
+								<option value="23">贵州</option>
+								<option value="24">海南</option>
+								<option value="25">云南</option>
+								<option value="26">青海</option>
+								<option value="27">陕西</option>
+								<option value="28">广西</option>
+								<option value="29">西藏</option>
+								<option value="30">宁夏</option>
+								<option value="31">新疆</option>
+								<option value="32">内蒙古</option>
+								<option value="33">澳门</option>
+								<option value="34">香港</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div style="margin-left: 140px; margin-bottom: 20px;">
+							<button type="submit" class="btn btn-primary">保存</button>
+							&nbsp;
+							<button type="button" class="btn btn-default" onclick="">取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="expect">
+				<div class="resume_title">
+					<h2>求职意向</h2>
+					<a href="" onclick="" class="right"><i class="icon-pencil"></i></a>
+				</div>
+				<form class="form-horizontal" role="form" id="resume_expect"></form>
+				<form class="form-horizontal" role="form" id="form_resume_expect" method="post" action="">
+					<div class="form-group">
+						<label for="expect_city_id" class="col-sm-1 control-label">期望城市</label>
+						<div class="col-sm-6">
+							<select id="expect_city_id" name="expect_city_id" class="form-control">
+								<option value="11">北京</option>
+								<option value="12">上海</option>
+								<option value="13">广州</option>
+								<option value="14">深圳</option>
+								<option value="15">杭州</option>
+								<option value="16">苏州</option>
+								<option value="17">南京</option>
+								<option value="18">大连</option>
+								<option value="19">成都</option>
+								<option value="21">天津</option>
+								<option value="22">沈阳</option>
+								<option value="23">长春</option>
+								<option value="24">哈尔滨</option>
+								<option value="25">石家庄</option>
+								<option value="26">秦皇岛</option>
+								<option value="27">太原</option>
+								<option value="28">呼和浩特</option>
+								<option value="31">无锡</option>
+								<option value="32">济南</option>
+								<option value="33">厦门</option>
+								<option value="34">宁波</option>
+								<option value="35">福州</option>
+								<option value="36">青岛</option>
+								<option value="37">合肥</option>
+								<option value="38">扬州</option>
+								<option value="41">香港</option>
+								<option value="42">武汉</option>
+								<option value="43">郑州</option>
+								<option value="44">长沙</option>
+								<option value="45">海南</option>
+								<option value="46">佛山</option>
+								<option value="47">南昌</option>
+								<option value="48">珠海</option>
+								<option value="49">东莞</option>
+								<option value="410">南宁</option>
+								<option value="51">西安</option>
+								<option value="52">重庆</option>
+								<option value="53">昆明</option>
+								<option value="54">乌鲁木齐</option>
+								<option value="55">兰州</option>
+								<option value="56">贵阳</option>
+								<option value="57">西宁</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="expect_job" class="col-sm-1 control-label">期望职位</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="expect_job" name="expect_job" value="" placeholder="如：PHP工程师">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="expect_salary" class="col-sm-1 control-label">期望薪资</label>
+						<div class="col-sm-4">
+							<select id="expect_salary" name="expect_salary" class="form-control" style="width: 286px;">
+								<option value="1">3000以下</option>
+								<option value="2">3001-5000</option>
+								<option value="3">5001-8000</option>
+								<option value="4" selected="selected">8001-15000</option>
+								<option value="5">15001-20000</option>
+								<option value="6">20001以上</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div style="margin-left: 140px; margin-bottom: 20px;">
+							<button type="submit" class="btn btn-primary">保存</button>
+							&nbsp;
+							<button type="button" class="btn btn-default" onclick="">取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="introduction">
+				<div class="resume_title">
+					<h2>自我描述</h2>
+					<a href="" onclick="" class="right"><i class="icon-pencil"></i></a>
+				</div>
+				<form class="form-horizontal" role="form" id="resume_introduction"></form>
+				<form class="form-horizontal" role="form" id="form_resume_introduction" method="post" action="">
+					<div class="form-group">
+						<label for="blog_url" class="col-sm-1 control-label">博客</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="blog_url" name="blog_url" value="" placeholder="选填（如：www.example.com）">
+						</div>
+					</div>
+					<div class="form-group"><label for="sina_weibo_url" class="col-sm-1 control-label">新浪微博</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="sina_weibo_url" name="sina_weibo_url" value="" placeholder="选填（如：www.weibo.com/joboto）">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="github_url" class="col-sm-1 control-label">Github</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="github_url" name="github_url" value="" placeholder="选填（如：www.github.com/yisheng）">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="zcool_url" class="col-sm-1 control-label">站酷</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="zcool_url" name="zcool_url" value="" placeholder="选填（如：www.zcool.com.cn/u/100）">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="introduction" class="col-sm-1 control-label">自我描述</label>
+						<div class="col-sm-9">
+							<textarea id="introduction" name="introduction" class="form-control" rows="8" placeholder="必填"></textarea>
+							<span class="help-block">自我评价、所获奖励、在线作品等</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div style="margin-left: 140px; margin-bottom: 20px;">
+							<button type="submit" class="btn btn-primary">保存</button>
+							&nbsp;
+							<button type="button" class="btn btn-default" onclick="">取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="company">
+				<div class="resume_title">
+					<h2>工作经历</h2>
+				</div>
+				<form class="form-horizontal" role="form" id="form_resume_company" method="post" action="" style="display:none;">
+					<input type="hidden" name="company_id" id="company_id" value="0">
+					<div class="form-group">
+						<label for="company_name" class="col-sm-1 control-label">公司名称</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="company_name" name="company_name" placeholder="公司名称">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="job_name" class="col-sm-1 control-label">职位名称</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="job_name" name="job_name" placeholder="如：产品经理">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="company_salary" class="col-sm-1 control-label">薪资</label>
+						<div class="col-sm-4">
+							<select id="company_salary" name="salary" class="form-control" style="width: 286px;">
+								<option value="1">3000以下</option>
+								<option value="2">3001-5000</option>
+								<option value="3">5001-8000</option>
+								<option value="4" selected="selected">8001-15000</option>
+								<option value="5">15001-20000</option>
+								<option value="6">20001以上</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="from_year_company" class="col-sm-1 control-label">起止日期</label>
+						<div class="col-sm-9">
+							<select id="from_year_company" name="from_year" class="form-control">
+								<option value="2014" selected="selected">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005">2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+								<option value="1999">1999</option>
+								<option value="1998">1998</option>
+								<option value="1997">1997</option>
+								<option value="1996">1996</option>
+								<option value="1995">1995</option>
+								<option value="1994">1994</option>
+								<option value="1993">1993</option>
+								<option value="1992">1992</option>
+								<option value="1991">1991</option>
+								<option value="1990">1990</option>
+								<option value="1989">1989</option>
+								<option value="1988">1988</option>
+								<option value="1987">1987</option>
+								<option value="1986">1986</option>
+								<option value="1985">1985</option>
+								<option value="1984">1984</option>
+								<option value="1983">1983</option>
+								<option value="1982">1982</option>
+								<option value="1981">1981</option>
+								<option value="1980">1980</option>
+								<option value="1979">1979</option>
+								<option value="1978">1978</option>
+								<option value="1977">1977</option>
+								<option value="1976">1976</option>
+								<option value="1975">1975</option>
+								<option value="1974">1974</option>
+								<option value="1973">1973</option>
+								<option value="1972">1972</option>
+								<option value="1971">1971</option>
+								<option value="1970">1970</option>
+							</select>&nbsp;年&nbsp;
+							<select id="from_month_company" name="from_month" class="form-control">
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>&nbsp;月&nbsp;
+							-
+							<select id="to_year_company" name="to_year" class="form-control">
+								<option value="0" selected="selected">至今</option>
+								<option value="2014">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005">2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+								<option value="1999">1999</option>
+								<option value="1998">1998</option>
+								<option value="1997">1997</option>
+								<option value="1996">1996</option>
+								<option value="1995">1995</option>
+								<option value="1994">1994</option>
+								<option value="1993">1993</option>
+								<option value="1992">1992</option>
+								<option value="1991">1991</option>
+								<option value="1990">1990</option>
+								<option value="1989">1989</option>
+								<option value="1988">1988</option>
+								<option value="1987">1987</option>
+								<option value="1986">1986</option>
+								<option value="1985">1985</option>
+								<option value="1984">1984</option>
+								<option value="1983">1983</option>
+								<option value="1982">1982</option>
+								<option value="1981">1981</option>
+								<option value="1980">1980</option>
+								<option value="1979">1979</option>
+								<option value="1978">1978</option>
+								<option value="1977">1977</option>
+								<option value="1976">1976</option>
+								<option value="1975">1975</option>
+								<option value="1974">1974</option>
+								<option value="1973">1973</option>
+								<option value="1972">1972</option>
+								<option value="1971">1971</option>
+								<option value="1970">1970</option>
+							</select>&nbsp;年&nbsp;
+							<select id="to_month_company" name="to_month" class="form-control">
+								<option value="0" selected="selected">至今</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>&nbsp;月&nbsp;
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="description_company" class="col-sm-1 control-label">工作描述</label>
+						<div class="col-sm-9">
+							<textarea id="description_company" name="description" class="form-control" rows="5" placeholder=""></textarea>
+							<span class="help-block">工作内容、工作表现等</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div style="margin-left: 140px; margin-bottom: 20px;">
+							<button type="submit" class="btn btn-primary">保存</button>
+							&nbsp;
+							<button type="button" class="btn btn-default" onclick="">取消</button>
+						</div>
+					</div>
+				</form>
+				<ul id="list_resume_company" class="resume_item_list"></ul>
+				<div class="" style="margin: 30px 20px;">
+					<button id="add_btn_resume_company" type="button" class="btn btn-primary resume_btn_large" onclick="">
+						<i class="icon-plus"></i>&nbsp;添加
+					</button>
+				</div>
+			</div>
+			<div id="project">
+				<div class="resume_title">
+					<h2>项目经验</h2>
+				</div>
+				<form class="form-horizontal" role="form" id="form_resume_project" method="post" action="" style="display:none;">
+					<input type="hidden" name="project_id" id="project_id" value="0">
+					<div class="form-group">
+						<label for="project_name" class="col-sm-1 control-label">项目名称</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="project_name" name="project_name" placeholder="项目名称">
+						</div>
+					</div>
+					<div class="form-group"><label for="position" class="col-sm-1 control-label">担任职务</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="position" name="position" placeholder="如：产品经理">
+						</div>
+					</div>
+					<div class="form-group"><label for="from_year_project" class="col-sm-1 control-label">起止日期</label>
+						<div class="col-sm-9">
+							<select id="from_year_project" name="from_year" class="form-control">
+								<option value="2014" selected="selected">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005">2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+								<option value="1999">1999</option>
+								<option value="1998">1998</option>
+								<option value="1997">1997</option>
+								<option value="1996">1996</option>
+								<option value="1995">1995</option>
+								<option value="1994">1994</option>
+								<option value="1993">1993</option>
+								<option value="1992">1992</option>
+								<option value="1991">1991</option>
+								<option value="1990">1990</option>
+								<option value="1989">1989</option>
+								<option value="1988">1988</option>
+								<option value="1987">1987</option>
+								<option value="1986">1986</option>
+								<option value="1985">1985</option>
+								<option value="1984">1984</option>
+								<option value="1983">1983</option>
+								<option value="1982">1982</option>
+								<option value="1981">1981</option>
+								<option value="1980">1980</option>
+								<option value="1979">1979</option>
+								<option value="1978">1978</option>
+								<option value="1977">1977</option>
+								<option value="1976">1976</option>
+								<option value="1975">1975</option>
+								<option value="1974">1974</option>
+								<option value="1973">1973</option>
+								<option value="1972">1972</option>
+								<option value="1971">1971</option>
+								<option value="1970">1970</option>
+							</select>&nbsp;年&nbsp;
+							<select id="from_month_project" name="from_month" class="form-control">
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>&nbsp;月&nbsp;
+							-
+							<select id="to_year_project" name="to_year" class="form-control">
+								<option value="0" selected="selected">至今</option>
+								<option value="2014">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005">2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+								<option value="1999">1999</option>
+								<option value="1998">1998</option>
+								<option value="1997">1997</option>
+								<option value="1996">1996</option>
+								<option value="1995">1995</option>
+								<option value="1994">1994</option>
+								<option value="1993">1993</option>
+								<option value="1992">1992</option>
+								<option value="1991">1991</option>
+								<option value="1990">1990</option>
+								<option value="1989">1989</option>
+								<option value="1988">1988</option>
+								<option value="1987">1987</option>
+								<option value="1986">1986</option>
+								<option value="1985">1985</option>
+								<option value="1984">1984</option>
+								<option value="1983">1983</option>
+								<option value="1982">1982</option>
+								<option value="1981">1981</option>
+								<option value="1980">1980</option>
+								<option value="1979">1979</option>
+								<option value="1978">1978</option>
+								<option value="1977">1977</option>
+								<option value="1976">1976</option>
+								<option value="1975">1975</option>
+								<option value="1974">1974</option>
+								<option value="1973">1973</option>
+								<option value="1972">1972</option>
+								<option value="1971">1971</option>
+								<option value="1970">1970</option>
+							</select>&nbsp;年&nbsp;
+							<select id="to_month_project" name="to_month" class="form-control">
+								<option value="0" selected="selected">至今</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>&nbsp;月&nbsp;
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="description_project" class="col-sm-1 control-label">项目描述</label>
+						<div class="col-sm-9">
+							<textarea id="description_project" name="description" class="form-control" rows="5" placeholder=""></textarea>
+							<span class="help-block">项目介绍、在线演示地址等</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div style="margin-left: 140px; margin-bottom: 20px;">
+							<button type="submit" class="btn btn-primary">保存</button>
+							&nbsp;
+							<button type="button" class="btn btn-default" onclick="">取消</button>
+						</div>
+					</div>
+				</form>
+				<ul id="list_resume_project" class="resume_item_list"></ul>
+				<div class="" style="margin: 30px 20px;">
+					<button id="add_btn_resume_project" type="button" class="btn btn-primary resume_btn_large" onclick="">
+						<i class="icon-plus"></i>&nbsp;添加
+					</button>
+				</div>
+			</div>
+			<div id="education">
+				<div class="resume_title">
+					<h2>教育经历</h2>
+				</div>
+				<form class="form-horizontal" role="form" id="form_resume_education" method="post" action="" style="display:none;">
+					<input type="hidden" name="education_id" id="education_id" value="0">
+					<div class="form-group">
+						<label for="school_name" class="col-sm-1 control-label">学校名称</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="school_name" name="school_name" placeholder="如：清华大学">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="major_name" class="col-sm-1 control-label">专业名称</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="major_name" name="major_name" placeholder="如：计算机系">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="degree_education" class="col-sm-1 control-label">学历</label>
+						<div class="col-sm-9">
+							<select id="degree_education" name="degree" class="form-control">
+								<option value="0">专科以下</option>
+								<option value="1">专科</option>
+								<option value="2" selected="selected">本科</option>
+								<option value="3">硕士</option>
+								<option value="4">博士</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="from_year_education" class="col-sm-1 control-label">起止日期</label>
+						<div class="col-sm-9">
+							<select id="from_year_education" name="from_year" class="form-control">
+								<option value="2014">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010" selected="selected">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005">2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+								<option value="1999">1999</option>
+								<option value="1998">1998</option>
+								<option value="1997">1997</option>
+								<option value="1996">1996</option>
+								<option value="1995">1995</option>
+								<option value="1994">1994</option>
+								<option value="1993">1993</option>
+								<option value="1992">1992</option>
+								<option value="1991">1991</option>
+								<option value="1990">1990</option>
+								<option value="1989">1989</option>
+								<option value="1988">1988</option>
+								<option value="1987">1987</option>
+								<option value="1986">1986</option>
+								<option value="1985">1985</option>
+								<option value="1984">1984</option>
+								<option value="1983">1983</option>
+								<option value="1982">1982</option>
+								<option value="1981">1981</option>
+								<option value="1980">1980</option>
+								<option value="1979">1979</option>
+								<option value="1978">1978</option>
+								<option value="1977">1977</option>
+								<option value="1976">1976</option>
+								<option value="1975">1975</option>
+								<option value="1974">1974</option>
+								<option value="1973">1973</option>
+								<option value="1972">1972</option>
+								<option value="1971">1971</option>
+								<option value="1970">1970</option>
+							</select>&nbsp;年&nbsp;
+							<select id="from_month_education" name="from_month" class="form-control">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9" selected="selected">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>&nbsp;月&nbsp;
+							-
+							<select id="to_year_education" name="to_year" class="form-control">
+								<option value="2018">2018</option>
+								<option value="2017">2017</option>
+								<option value="2016">2016</option>
+								<option value="2015">2015</option>
+								<option value="2014" selected="selected">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005">2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+								<option value="1999">1999</option>
+								<option value="1998">1998</option>
+								<option value="1997">1997</option>
+								<option value="1996">1996</option>
+								<option value="1995">1995</option>
+								<option value="1994">1994</option>
+								<option value="1993">1993</option>
+								<option value="1992">1992</option>
+								<option value="1991">1991</option>
+								<option value="1990">1990</option>
+								<option value="1989">1989</option>
+								<option value="1988">1988</option>
+								<option value="1987">1987</option>
+								<option value="1986">1986</option>
+								<option value="1985">1985</option>
+								<option value="1984">1984</option>
+								<option value="1983">1983</option>
+								<option value="1982">1982</option>
+								<option value="1981">1981</option>
+								<option value="1980">1980</option>
+								<option value="1979">1979</option>
+								<option value="1978">1978</option>
+								<option value="1977">1977</option>
+								<option value="1976">1976</option>
+								<option value="1975">1975</option>
+								<option value="1974">1974</option>
+								<option value="1973">1973</option>
+								<option value="1972">1972</option>
+								<option value="1971">1971</option>
+								<option value="1970">1970</option>
+							</select>&nbsp;年&nbsp;
+							<select id="to_month_education" name="to_month" class="form-control">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7" selected="selected">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>&nbsp;月&nbsp;
+						</div>
+					</div>
+					<div class="form-group">
+						<div style="margin-left: 140px; margin-bottom: 20px;">
+							<button type="submit" class="btn btn-primary">保存</button>
+							&nbsp;
+							<button type="button" class="btn btn-default" onclick="">取消</button>
+						</div>
+					</div>
+				</form>
+				<ul id="list_resume_education" class="resume_item_list"></ul>
+				<div class="" style="margin: 30px 20px;">
+					<button id="add_btn_resume_education" type="button" class="btn btn-primary resume_btn_large" onclick="">
+						<i class="icon-plus"></i>&nbsp;添加
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="margin:30px 0;"></div>
+</div>
+
+<!-- 标准底部 -->
+<include file="Public/footer"/>
